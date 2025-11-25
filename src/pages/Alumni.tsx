@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Quote } from "lucide-react";
+import { Quote, Award, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Alumni = () => {
   const alumni = [
@@ -50,66 +51,135 @@ const Alumni = () => {
   return (
     <div className="min-h-screen bg-background py-16 px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-primary mb-4">Our Alumni</h1>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <Award className="w-16 h-16 text-primary mx-auto mb-4" />
+          <h1 className="text-6xl font-bold text-primary mb-4">Our Alumni</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Proud members who continue to make a difference with the values and experiences gained from The Squad
           </p>
-        </div>
+        </motion.div>
 
-        <div className="space-y-8">
+        <div className="space-y-12">
           {alumni.map((person, index) => (
-            <Card 
-              key={index} 
-              className="overflow-hidden hover:shadow-elegant transition-all duration-300"
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className={`grid md:grid-cols-5 gap-6 ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
-                {/* Image Section */}
-                <div className={`md:col-span-2 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                  <div className="aspect-square overflow-hidden bg-gradient-patriotic">
-                    <img 
-                      src={person.image} 
-                      alt={person.name}
-                      className="w-full h-full object-cover"
-                    />
+              <Card 
+                className="overflow-hidden hover:shadow-elegant transition-all duration-500 group border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm"
+              >
+                <div className={`grid md:grid-cols-5 gap-0 ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
+                  {/* Image Section */}
+                  <motion.div 
+                    className={`md:col-span-2 ${index % 2 === 1 ? 'md:order-2' : ''} relative overflow-hidden`}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="aspect-square overflow-hidden relative">
+                      <img 
+                        src={person.image} 
+                        alt={person.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      {/* Floating Badge */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className="absolute top-4 right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full font-bold shadow-lg"
+                      >
+                        {person.batch}
+                      </motion.div>
+                    </div>
+                  </motion.div>
+
+                  {/* Content Section */}
+                  <div className={`md:col-span-3 p-8 md:p-10 flex flex-col justify-center ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+                    <motion.div 
+                      className="mb-6"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <h3 className="text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                        {person.name}
+                      </h3>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Briefcase className="w-5 h-5 text-accent" />
+                        <p className="text-lg text-primary font-semibold">{person.current}</p>
+                      </div>
+                    </motion.div>
+
+                    <motion.div 
+                      className="relative"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      <Quote className="absolute -left-2 -top-2 h-12 w-12 text-primary/20" />
+                      <blockquote className="pl-8 border-l-4 border-primary relative">
+                        <p className="text-foreground leading-relaxed text-lg italic">
+                          "{person.testimonial}"
+                        </p>
+                      </blockquote>
+                    </motion.div>
                   </div>
                 </div>
-
-                {/* Content Section */}
-                <div className={`md:col-span-3 p-6 md:p-8 flex flex-col justify-center ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-foreground mb-1">{person.name}</h3>
-                    <p className="text-primary font-semibold mb-1">{person.current}</p>
-                    <p className="text-sm text-muted-foreground">Batch: {person.batch}</p>
-                  </div>
-
-                  <div className="relative">
-                    <Quote className="absolute -left-2 -top-2 h-8 w-8 text-primary/20" />
-                    <blockquote className="pl-6 border-l-4 border-primary">
-                      <p className="text-foreground leading-relaxed italic">
-                        {person.testimonial}
-                      </p>
-                    </blockquote>
-                  </div>
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
         {/* Call to Action */}
-        <Card className="mt-12 p-8 bg-gradient-patriotic text-primary-foreground text-center">
-          <h2 className="text-3xl font-bold mb-4">Are You an Alumnus?</h2>
-          <p className="text-lg mb-6 opacity-90">
-            We'd love to hear from you! Share your journey and inspire current members.
-          </p>
-          <a 
-            href="mailto:squad_aseb@gmail.com?subject=Alumni Testimonial" 
-            className="inline-block bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-md font-semibold transition-colors"
-          >
-            Get in Touch
-          </a>
-        </Card>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Card className="mt-16 p-10 bg-gradient-patriotic text-primary-foreground text-center border-0 relative overflow-hidden">
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
+            />
+            
+            <div className="relative z-10">
+              <h2 className="text-4xl font-bold mb-4">Are You an Alumnus?</h2>
+              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                We'd love to hear from you! Share your journey and inspire current members.
+              </p>
+              <motion.a 
+                href="mailto:squad_aseb@gmail.com?subject=Alumni Testimonial" 
+                className="inline-block bg-accent hover:bg-accent/90 text-accent-foreground px-10 py-4 rounded-md font-semibold shadow-lg text-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get in Touch
+              </motion.a>
+            </div>
+          </Card>
+        </motion.div>
       </div>
     </div>
   );
