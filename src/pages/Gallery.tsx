@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
+import { motion, AnimatePresence } from "framer-motion";
+import { Camera, Play, Pause } from "lucide-react";
 
 const Gallery = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const galleryImages = [
     {
@@ -48,77 +51,152 @@ const Gallery = () => {
   ];
 
   useEffect(() => {
+    if (!isPlaying) return;
+    
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, [galleryImages.length]);
+  }, [galleryImages.length, isPlaying]);
 
   return (
     <div className="min-h-screen bg-background py-16 px-4">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-primary mb-4">Squad Gallery</h1>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <Camera className="w-16 h-16 text-primary mx-auto mb-4" />
+          <h1 className="text-6xl font-bold text-primary mb-4">Squad Gallery</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Capturing moments of adventure, patriotism, and camaraderie
           </p>
-        </div>
+        </motion.div>
 
         {/* Featured Image Slideshow */}
-        <Card className="overflow-hidden shadow-elegant mb-12">
-          <div className="relative aspect-[16/9] overflow-hidden">
-            <img 
-              src={galleryImages[currentImageIndex].url} 
-              alt={galleryImages[currentImageIndex].title}
-              className="w-full h-full object-cover transition-opacity duration-1000"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-              <h3 className="text-2xl font-bold text-white mb-2">
+        <Card className="overflow-hidden shadow-elegant mb-12 border-2 hover:border-primary/50 transition-colors">
+          <div className="relative aspect-[16/9] overflow-hidden bg-black">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentImageIndex}
+                src={galleryImages[currentImageIndex].url} 
+                alt={galleryImages[currentImageIndex].title}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.7 }}
+                className="w-full h-full object-cover"
+              />
+            </AnimatePresence>
+            
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-8">
+              <motion.h3 
+                key={`title-${currentImageIndex}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-3xl font-bold text-white mb-2"
+              >
                 {galleryImages[currentImageIndex].title}
-              </h3>
-              <p className="text-white/90">
+              </motion.h3>
+              <motion.p 
+                key={`desc-${currentImageIndex}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-white/90 text-lg"
+              >
                 {galleryImages[currentImageIndex].description}
-              </p>
+              </motion.p>
             </div>
+
+            {/* Play/Pause Button */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setIsPlaying(!isPlaying)}
+              className="absolute top-4 right-4 w-14 h-14 bg-primary/90 hover:bg-primary backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg"
+            >
+              {isPlaying ? (
+                <Pause className="w-6 h-6 text-primary-foreground" />
+              ) : (
+                <Play className="w-6 h-6 text-primary-foreground ml-1" />
+              )}
+            </motion.button>
           </div>
         </Card>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {galleryImages.map((image, index) => (
-            <Card 
-              key={index} 
-              className="overflow-hidden cursor-pointer hover:shadow-elegant transition-all duration-300 hover:-translate-y-2"
-              onClick={() => setCurrentImageIndex(index)}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              whileHover={{ y: -10 }}
             >
-              <div className="aspect-square overflow-hidden">
-                <img 
-                  src={image.url} 
-                  alt={image.title}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold text-foreground mb-1">{image.title}</h4>
-                <p className="text-sm text-muted-foreground">{image.description}</p>
-              </div>
-            </Card>
+              <Card 
+                className={`overflow-hidden cursor-pointer hover:shadow-elegant transition-all duration-300 group border-2 ${
+                  index === currentImageIndex ? 'border-primary ring-2 ring-primary/50' : 'border-transparent hover:border-primary/50'
+                }`}
+                onClick={() => {
+                  setCurrentImageIndex(index);
+                  setIsPlaying(false);
+                }}
+              >
+                <div className="aspect-square overflow-hidden relative">
+                  <motion.img 
+                    src={image.url} 
+                    alt={image.title}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {index === currentImageIndex && (
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="absolute top-4 right-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center"
+                    >
+                      <Camera className="w-5 h-5 text-primary-foreground" />
+                    </motion.div>
+                  )}
+                </div>
+                <div className="p-4 bg-card/50 backdrop-blur-sm">
+                  <h4 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+                    {image.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground">{image.description}</p>
+                </div>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
         {/* Dots indicator */}
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-3 mt-12">
           {galleryImages.map((_, index) => (
-            <button
+            <motion.button
               key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
+              onClick={() => {
+                setCurrentImageIndex(index);
+                setIsPlaying(false);
+              }}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              className={`h-3 rounded-full transition-all ${
                 index === currentImageIndex 
-                  ? 'bg-primary w-8' 
-                  : 'bg-muted hover:bg-primary/50'
+                  ? 'bg-primary w-12' 
+                  : 'bg-muted hover:bg-primary/50 w-3'
               }`}
               aria-label={`Go to image ${index + 1}`}
             />
