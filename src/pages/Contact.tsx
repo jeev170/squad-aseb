@@ -49,7 +49,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background py-16 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-primary mb-4">Connect With Us</h1>
+          <h1 className="text-5xl font-serif font-bold text-primary mb-4">Connect With Us</h1>
           <p className="text-xl text-muted-foreground">
             Get in touch with The Squad - We'd love to hear from you
           </p>

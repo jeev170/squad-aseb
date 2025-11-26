@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Mountain, Flag, Users, Calendar, Sparkles, Zap, Heart } from "lucide-react";
+import { Mountain, Flag, Users, Calendar, Heart } from "lucide-react";
 import heroBanner from "@/assets/hero-banner.jpg";
 import { motion } from "framer-motion";
 
@@ -36,19 +36,11 @@ const Home = () => {
         </motion.div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <Sparkles className="w-12 h-12 text-accent mx-auto mb-4 animate-pulse" />
-          </motion.div>
-          
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-6xl md:text-8xl font-bold text-primary-foreground mb-6 tracking-tight"
+            className="text-6xl md:text-8xl font-serif font-bold text-primary-foreground mb-6 tracking-tight"
           >
             THE SQUAD
           </motion.h1>
@@ -70,7 +62,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 1 }}
             className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto"
           >
-            Uniting the spirit of adventure with love for the nation 🇮🇳
+            Uniting the spirit of adventure with love for the nation
           </motion.p>
           
           <motion.div 
@@ -81,7 +73,6 @@ const Home = () => {
           >
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 shadow-elegant hover:scale-105 transition-transform">
               <Link to="/about">
-                <Zap className="w-5 h-5 mr-2" />
                 Discover Our Mission
               </Link>
             </Button>
@@ -237,8 +228,7 @@ const Home = () => {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl -z-10"
           />
           
-          <Sparkles className="w-16 h-16 text-primary mx-auto mb-6 animate-pulse" />
-          <h2 className="text-5xl font-bold mb-6 text-primary">Join Our Journey</h2>
+          <h2 className="text-5xl font-serif font-bold mb-6 text-primary">Join Our Journey</h2>
           <p className="text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
             Be part of a community that celebrates patriotism through adventure and exploration
           </p>
