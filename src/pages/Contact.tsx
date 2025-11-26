@@ -180,7 +180,7 @@ const Contact = () => {
             <Card className="overflow-hidden shadow-elegant">
               <div className="aspect-video">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6165686771625!2d77.65669931482163!3d12.930732090880796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1325b4d0c3b7%3A0x9f8beee8e0c5c7f1!2sAmrita%20Vishwa%20Vidyapeetham%2C%20Bengaluru%20Campus!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1234567890!2d77.6634567!3d12.9671234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13bdf0c3f123%3A0x1234567890abcdef!2sAmrita%20School%20of%20Engineering%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1234567890123"
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }}

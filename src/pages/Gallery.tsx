@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
-import { Card } from "@/components/ui/card";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { X } from "lucide-react";
 
 const Gallery = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const galleryImages = [
     {
@@ -47,34 +45,28 @@ const Gallery = () => {
       url: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=1200&h=800&fit=crop",
       title: "Heritage Walk",
       description: "Exploring historical sites"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1445346366695-5bf62de05412?w=1200&h=800&fit=crop",
+      title: "Camp Fire Nights",
+      description: "Bonding under the stars"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&h=800&fit=crop",
+      title: "Rock Climbing",
+      description: "Pushing physical limits"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=1200&h=800&fit=crop",
+      title: "River Rafting",
+      description: "Conquering the rapids"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1200&h=800&fit=crop",
+      title: "Group Activities",
+      description: "Building lasting friendships"
     }
   ];
-
-  useEffect(() => {
-    if (!isPlaying) return;
-    
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [galleryImages.length, isPlaying]);
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
-    );
-    setIsPlaying(false);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
-    );
-    setIsPlaying(false);
-  };
 
   return (
     <div className="min-h-screen bg-background py-16 px-4">
@@ -91,96 +83,83 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        {/* Main Featured Image */}
-        <Card className="overflow-hidden shadow-elegant mb-8 border-2 hover:border-primary/50 transition-colors">
-          <div className="relative aspect-[21/9] overflow-hidden bg-black">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentImageIndex}
-                src={galleryImages[currentImageIndex].url} 
-                alt={galleryImages[currentImageIndex].title}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-full object-cover"
-              />
-            </AnimatePresence>
-            
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-8">
-              <motion.h3 
-                key={`title-${currentImageIndex}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-3xl font-serif font-bold text-white mb-2"
-              >
-                {galleryImages[currentImageIndex].title}
-              </motion.h3>
-              <motion.p 
-                key={`desc-${currentImageIndex}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-white/90 text-lg"
-              >
-                {galleryImages[currentImageIndex].description}
-              </motion.p>
-            </div>
-
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transition-all"
-            >
-              <ChevronLeft className="w-6 h-6 text-primary-foreground" />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transition-all"
-            >
-              <ChevronRight className="w-6 h-6 text-primary-foreground" />
-            </button>
-          </div>
-        </Card>
-
-        {/* Thumbnail Grid */}
-        <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
+        {/* Masonry Grid Layout */}
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
           {galleryImages.map((image, index) => (
-            <motion.button
+            <motion.div
               key={index}
-              onClick={() => {
-                setCurrentImageIndex(index);
-                setIsPlaying(false);
-              }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`aspect-square overflow-hidden rounded-lg border-2 transition-all ${
-                index === currentImageIndex 
-                  ? 'border-primary ring-2 ring-primary/50' 
-                  : 'border-transparent hover:border-primary/50'
-              }`}
+              className="break-inside-avoid cursor-pointer group relative overflow-hidden rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
+              onClick={() => setSelectedImage(index)}
             >
               <img 
                 src={image.url} 
                 alt={image.title}
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
               />
-            </motion.button>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <h3 className="text-white font-bold text-xl mb-2">{image.title}</h3>
+                <p className="text-white/90 text-sm">{image.description}</p>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Progress Indicator */}
-        <div className="mt-8 text-center">
-          <p className="text-muted-foreground">
-            {currentImageIndex + 1} / {galleryImages.length}
-          </p>
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="mt-4 text-primary hover:text-primary/80 font-medium underline"
-          >
-            {isPlaying ? 'Pause Slideshow' : 'Play Slideshow'}
-          </button>
-        </div>
+        {/* Lightbox Modal */}
+        <AnimatePresence>
+          {selectedImage !== null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedImage(null)}
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
+              >
+                <X className="w-6 h-6 text-white" />
+              </button>
+              
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                className="max-w-6xl max-h-[90vh] relative"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img 
+                  src={galleryImages[selectedImage].url} 
+                  alt={galleryImages[selectedImage].title}
+                  className="w-full h-full object-contain rounded-lg"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6 rounded-b-lg">
+                  <h3 className="text-white font-bold text-2xl mb-2">{galleryImages[selectedImage].title}</h3>
+                  <p className="text-white/90">{galleryImages[selectedImage].description}</p>
+                </div>
+              </motion.div>
+
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+                {galleryImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImage(idx);
+                    }}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      idx === selectedImage ? 'bg-white w-8' : 'bg-white/40 hover:bg-white/60'
+                    }`}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

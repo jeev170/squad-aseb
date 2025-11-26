@@ -16,11 +16,18 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const aboutLinks = [
-    { title: "About Us", href: "/about" },
-    { title: "Mission", href: "/about#mission" },
-    { title: "Vision", href: "/about#vision" },
-    { title: "Objectives", href: "/about#objectives" },
+    { title: "About Us", href: "/about", scrollTo: null },
+    { title: "Mission", href: "/about", scrollTo: "mission" },
+    { title: "Vision", href: "/about", scrollTo: "vision" },
+    { title: "Objectives", href: "/about", scrollTo: "objectives" },
   ];
+
+  const handleAboutClick = (e: React.MouseEvent, scrollTo: string | null) => {
+    if (scrollTo) {
+      e.preventDefault();
+      window.location.href = `/about#${scrollTo}`;
+    }
+  };
 
   const squadYears = Array.from({ length: 10 }, (_, i) => {
     const year = 2025 - i;
@@ -55,10 +62,11 @@ const Navigation = () => {
                   <NavigationMenuContent>
                     <ul className="grid w-48 gap-1 p-2 bg-card">
                       {aboutLinks.map((link) => (
-                        <li key={link.href}>
+                        <li key={link.title}>
                           <NavigationMenuLink asChild>
                             <Link
                               to={link.href}
+                              onClick={(e) => handleAboutClick(e, link.scrollTo)}
                               className="block select-none rounded-md p-3 hover:bg-muted transition-colors"
                             >
                               {link.title}
