@@ -159,16 +159,6 @@ const Events = () => {
                   <p className="text-muted-foreground leading-relaxed flex-1">
                     {event.description}
                   </p>
-
-                  <motion.div 
-                    className="mt-4 pt-4 border-t border-border"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                  >
-                    <span className="text-primary font-semibold group-hover:underline">
-                      Learn More →
-                    </span>
-                  </motion.div>
                 </div>
               </Card>
             </motion.div>

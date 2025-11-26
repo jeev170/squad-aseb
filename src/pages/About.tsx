@@ -1,8 +1,22 @@
 import { Card } from "@/components/ui/card";
 import { Target, Eye, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const About = () => {
+  useEffect(() => {
+    // Handle scrolling to anchor on page load
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, []);
+
   const objectives = [
     "To induce the traits of discipline and responsibility among the student community and guide them towards careers in the Indian Defence Forces.",
     "To inculcate patriotism among the students and mold them into responsible citizens of India.",
