@@ -57,8 +57,7 @@ const Alumni = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <Award className="w-16 h-16 text-primary mx-auto mb-4" />
-          <h1 className="text-6xl font-bold text-primary mb-4">Our Alumni</h1>
+          <h1 className="text-6xl font-serif font-bold text-primary mb-4">Our Alumni</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Proud members who continue to make a difference with the values and experiences gained from The Squad
           </p>
@@ -150,22 +149,9 @@ const Alumni = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Card className="mt-16 p-10 bg-gradient-patriotic text-primary-foreground text-center border-0 relative overflow-hidden">
-            <motion.div
-              animate={{ 
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3]
-              }}
-              transition={{ 
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
-            />
-            
-            <div className="relative z-10">
-              <h2 className="text-4xl font-bold mb-4">Are You an Alumnus?</h2>
+          <Card className="mt-16 p-10 bg-gradient-patriotic text-primary-foreground text-center border-0">
+            <div>
+              <h2 className="text-4xl font-serif font-bold mb-4">Are You an Alumnus?</h2>
               <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
                 We'd love to hear from you! Share your journey and inspire current members.
               </p>

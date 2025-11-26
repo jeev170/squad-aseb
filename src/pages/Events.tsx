@@ -91,7 +91,7 @@ const Events = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-6xl font-bold text-primary mb-4">Our Events</h1>
+          <h1 className="text-6xl font-serif font-bold text-primary mb-4">Our Events</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Join us in celebrating patriotism and adventure through our diverse range of activities and events
           </p>
@@ -184,7 +184,7 @@ const Events = () => {
           className="mt-20 text-center"
         >
           <Card className="p-12 bg-gradient-patriotic text-primary-foreground border-0">
-            <h2 className="text-4xl font-bold mb-4">Want to Participate?</h2>
+            <h2 className="text-4xl font-serif font-bold mb-4">Want to Participate?</h2>
             <p className="text-xl mb-6 opacity-90">
               Join us in our upcoming events and be part of the adventure!
             </p>

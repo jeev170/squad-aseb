@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Target, Eye, CheckCircle, Zap } from "lucide-react";
+import { Target, Eye, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -11,35 +11,8 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background py-16 px-4 overflow-hidden">
-      <div className="container mx-auto max-w-5xl relative">
-        {/* Decorative Background */}
-        <motion.div
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1]
-          }}
-          transition={{ 
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute -top-20 -right-20 w-96 h-96 bg-primary rounded-full blur-3xl -z-10"
-        />
-        <motion.div
-          animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.1, 0.2, 0.1]
-          }}
-          transition={{ 
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-          className="absolute -bottom-20 -left-20 w-96 h-96 bg-accent rounded-full blur-3xl -z-10"
-        />
-
+    <div className="min-h-screen bg-background py-16 px-4">
+      <div className="container mx-auto max-w-5xl">
         {/* About Us Section */}
         <motion.section 
           className="mb-20" 
@@ -49,14 +22,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="text-center mb-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", duration: 0.8 }}
-            >
-              <Zap className="w-16 h-16 text-accent mx-auto mb-4" />
-            </motion.div>
-            <h1 className="text-6xl font-bold text-primary mb-6">About Us</h1>
+            <h1 className="text-6xl font-serif font-bold text-primary mb-6">About Us</h1>
           </div>
           
           <motion.div
@@ -92,7 +58,7 @@ const About = () => {
             >
               <Target className="h-10 w-10 text-primary" />
             </motion.div>
-            <h2 className="text-5xl font-bold text-primary">Our Mission</h2>
+            <h2 className="text-5xl font-serif font-bold text-primary">Our Mission</h2>
           </div>
           
           <motion.div
@@ -127,7 +93,7 @@ const About = () => {
             >
               <Eye className="h-10 w-10 text-accent" />
             </motion.div>
-            <h2 className="text-5xl font-bold text-primary">Our Vision</h2>
+            <h2 className="text-5xl font-serif font-bold text-primary">Our Vision</h2>
           </div>
           
           <motion.div
@@ -160,7 +126,7 @@ const About = () => {
             >
               <CheckCircle className="h-10 w-10 text-primary" />
             </motion.div>
-            <h2 className="text-5xl font-bold text-primary">Our Objectives</h2>
+            <h2 className="text-5xl font-serif font-bold text-primary">Our Objectives</h2>
           </div>
           
           <div className="grid gap-6">
@@ -192,36 +158,6 @@ const About = () => {
           </div>
         </motion.section>
 
-        {/* Decorative Floating Icons */}
-        <motion.div
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 10, 0]
-          }}
-          transition={{ 
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-40 right-0 w-12 h-12 opacity-20"
-        >
-          <Target className="w-full h-full text-primary" />
-        </motion.div>
-        <motion.div
-          animate={{ 
-            y: [0, 20, 0],
-            rotate: [0, -10, 0]
-          }}
-          transition={{ 
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-          className="absolute bottom-40 left-0 w-16 h-16 opacity-20"
-        >
-          <Eye className="w-full h-full text-accent" />
-        </motion.div>
       </div>
     </div>
   );
