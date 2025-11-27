@@ -11,45 +11,105 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <motion.div 
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          initial={{ scale: 1.2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBanner})` }}
         >
           <div className="absolute inset-0 bg-gradient-hero" />
         </motion.div>
+
+        {/* Animated gradient orbs */}
+        <motion.div
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ 
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-20 right-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{ 
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute bottom-20 left-20 w-96 h-96 bg-accent/30 rounded-full blur-3xl"
+        />
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.3, type: "spring", damping: 20 }}
           >
-            <h1 className="text-7xl md:text-9xl font-serif font-bold text-primary-foreground mb-6 tracking-tight leading-none">
+            <motion.h1 
+              className="text-7xl md:text-9xl font-serif font-bold text-primary-foreground mb-8 tracking-tight leading-none"
+              animate={{ 
+                textShadow: [
+                  "0 0 20px rgba(255,255,255,0.5)",
+                  "0 0 40px rgba(255,255,255,0.3)",
+                  "0 0 20px rgba(255,255,255,0.5)"
+                ]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
               THE SQUAD
-            </h1>
+            </motion.h1>
             
-            <div className="inline-block mb-8">
-              <p className="text-2xl md:text-4xl text-primary-foreground font-semibold bg-accent/30 px-8 py-3 rounded-full backdrop-blur-sm border-2 border-accent">
+            <motion.div 
+              className="inline-block mb-10"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
+            >
+              <p className="text-2xl md:text-4xl text-primary-foreground font-semibold glassmorphism px-10 py-4 rounded-full border-2 border-accent/50">
                 The Patriotic and Adventure Club
               </p>
-            </div>
+            </motion.div>
             
-            <p className="text-xl md:text-2xl text-primary-foreground/95 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <motion.p 
+              className="text-xl md:text-2xl text-primary-foreground/95 mb-14 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
               Uniting the spirit of adventure with love for the nation
-            </p>
+            </motion.p>
             
-            <div className="flex flex-wrap gap-6 justify-center">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-lg px-10 py-6 h-auto shadow-elegant hover:scale-105 transition-transform">
-                <Link to="/about">
-                  Discover Our Mission
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="bg-background/20 hover:bg-background/30 backdrop-blur-sm border-primary-foreground/40 border-2 text-primary-foreground hover:text-primary-foreground text-lg px-10 py-6 h-auto hover:scale-105 transition-transform">
-                <Link to="/events">View Events</Link>
-              </Button>
-            </div>
+            <motion.div 
+              className="flex flex-wrap gap-6 justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2 }}
+            >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-lg px-12 py-7 h-auto shadow-glow hover:shadow-glow transition-all">
+                  <Link to="/about">
+                    Discover Our Mission
+                  </Link>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button asChild size="lg" variant="outline" className="glassmorphism border-primary-foreground/40 border-2 text-primary-foreground hover:text-primary-foreground text-lg px-12 py-7 h-auto hover:bg-white/20 transition-all">
+                  <Link to="/events">View Events</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -76,10 +136,21 @@ const Home = () => {
 
       {/* Values Section */}
       <section className="min-h-screen py-24 px-4 bg-background flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl" />
-        </div>
+        <motion.div 
+          className="absolute inset-0 opacity-10"
+          animate={{ 
+            background: [
+              "radial-gradient(circle at 20% 50%, hsl(var(--primary)) 0%, transparent 50%)",
+              "radial-gradient(circle at 80% 50%, hsl(var(--accent)) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 50%, hsl(var(--primary)) 0%, transparent 50%)"
+            ]
+          }}
+          transition={{ 
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
 
         <div className="container mx-auto relative z-10">
           <motion.div
@@ -108,19 +179,24 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -15, rotateY: 5 }}
               >
-                <Card className={`p-8 text-center hover:shadow-elegant transition-all duration-500 group h-full bg-gradient-to-br ${feature.gradient} border-2 hover:border-primary/50`}>
+                <Card className={`p-10 text-center hover:shadow-glow transition-all duration-500 group h-full bg-gradient-to-br ${feature.gradient} border-2 hover:border-primary/50 relative overflow-hidden`}>
                   <motion.div 
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors"
+                    className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    initial={false}
+                  />
+                  
+                  <motion.div 
+                    whileHover={{ rotate: 360, scale: 1.15 }}
+                    transition={{ duration: 0.7, type: "spring" }}
+                    className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:shadow-glow relative z-10"
                   >
-                    <feature.icon className="h-10 w-10 text-primary" />
+                    <feature.icon className="h-12 w-12 text-primary" />
                   </motion.div>
                   
-                  <h3 className="text-2xl font-bold mb-4 text-foreground">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <h3 className="text-2xl font-bold mb-4 text-foreground relative z-10 group-hover:text-primary transition-colors">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed relative z-10">
                     {feature.desc}
                   </p>
                 </Card>

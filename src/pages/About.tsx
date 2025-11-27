@@ -93,13 +93,12 @@ const About = () => {
         {/* Vision Section */}
         <motion.section 
           className="mb-20" 
-          id="vision"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex items-center gap-6 mb-8">
+          <div className="flex items-center gap-6 mb-8 scroll-smooth-offset" id="vision">
             <motion.div 
               className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center"
               whileHover={{ rotate: 360 }}
