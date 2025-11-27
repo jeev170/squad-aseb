@@ -2,6 +2,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Users } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const Events = () => {
   const events = [
@@ -83,16 +85,27 @@ const Events = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-16 px-4">
-      <div className="container mx-auto">
+    <div className="min-h-screen bg-background py-24 px-4 relative overflow-hidden">
+      <div className="absolute inset-0 pattern-dots opacity-30" />
+      <ParticleBackground />
+      
+      <div className="container mx-auto relative z-10">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
         >
-          <h1 className="text-6xl font-serif font-bold text-primary mb-4">Our Events</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+            className="inline-block mb-6"
+          >
+            <Calendar className="h-20 w-20 text-accent mx-auto animate-pulse-glow" />
+          </motion.div>
+          <h1 className="text-8xl font-serif font-bold text-gradient mb-8">Our Events</h1>
+          <p className="text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
             Join us in celebrating patriotism and adventure through our diverse range of activities and events
           </p>
         </motion.div>
@@ -101,62 +114,74 @@ const Events = () => {
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
         >
-          {events.map((event) => (
+          {events.map((event, index) => (
             <motion.div
               key={event.id}
               variants={item}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+              whileHover={{ y: -15, rotate: 1 }}
+              transition={{ duration: 0.5 }}
+              className="group"
             >
-              <Card className="overflow-hidden h-full flex flex-col group cursor-pointer border-2 hover:border-primary/50 hover:shadow-elegant transition-all duration-300 bg-card/50 backdrop-blur-sm">
+              <Card className="overflow-hidden h-full flex flex-col group cursor-pointer border-2 hover:border-accent/50 hover:shadow-glow transition-all duration-500 glassmorphism relative">
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-gold opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"
+                />
+                
                 <div className="aspect-video overflow-hidden relative">
                   <motion.img 
                     src={event.image} 
                     alt={event.title}
                     className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ duration: 0.7 }}
                   />
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-accent text-accent-foreground font-semibold shadow-lg">
-                      {event.category}
-                    </Badge>
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                    >
+                      <Badge className="bg-gradient-gold text-foreground font-bold shadow-gold text-base px-4 py-1">
+                        {event.category}
+                      </Badge>
+                    </motion.div>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                <div className="p-8 flex-1 flex flex-col relative z-10">
+                  <h3 className="text-3xl font-bold text-foreground mb-6 group-hover:text-gradient transition-all duration-500">
                     {event.title}
                   </h3>
                   
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-3 mb-6">
                     <motion.div 
-                      className="flex items-center gap-2 text-muted-foreground"
-                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-3 text-muted-foreground"
+                      whileHover={{ x: 8 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <Calendar className="h-4 w-4 text-primary" />
-                      <span className="text-sm font-medium">{event.date}</span>
+                      <Calendar className="h-5 w-5 text-primary" />
+                      <span className="text-base font-semibold">{event.date}</span>
                     </motion.div>
                     <motion.div 
-                      className="flex items-center gap-2 text-muted-foreground"
-                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-3 text-muted-foreground"
+                      whileHover={{ x: 8 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <MapPin className="h-4 w-4 text-primary" />
-                      <span className="text-sm font-medium">{event.location}</span>
+                      <MapPin className="h-5 w-5 text-primary" />
+                      <span className="text-base font-semibold">{event.location}</span>
                     </motion.div>
                     <motion.div 
-                      className="flex items-center gap-2 text-muted-foreground"
-                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-3 text-muted-foreground"
+                      whileHover={{ x: 8 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <Users className="h-4 w-4 text-primary" />
-                      <span className="text-sm font-medium">{event.attendees} Participants</span>
+                      <Users className="h-5 w-5 text-primary" />
+                      <span className="text-base font-semibold">{event.attendees} Participants</span>
                     </motion.div>
                   </div>
                   
-                  <p className="text-muted-foreground leading-relaxed flex-1">
+                  <p className="text-muted-foreground leading-relaxed flex-1 text-lg">
                     {event.description}
                   </p>
                 </div>
@@ -167,25 +192,36 @@ const Events = () => {
 
         {/* CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-20 text-center"
+          transition={{ duration: 0.8 }}
+          className="mt-24"
         >
-          <Card className="p-12 bg-gradient-patriotic text-primary-foreground border-0">
-            <h2 className="text-4xl font-serif font-bold mb-4">Want to Participate?</h2>
-            <p className="text-xl mb-6 opacity-90">
-              Join us in our upcoming events and be part of the adventure!
-            </p>
-            <motion.a
-              href="/contact"
-              className="inline-block bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 rounded-md font-semibold shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get in Touch
-            </motion.a>
+          <Card className="relative p-16 bg-gradient-patriotic text-primary-foreground border-0 overflow-hidden">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute -top-20 -right-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl"
+            />
+            <div className="relative z-10">
+              <h2 className="text-6xl font-serif font-bold mb-6">Want to Participate?</h2>
+              <p className="text-2xl mb-10 opacity-90 font-medium">
+                Join us in our upcoming events and be part of the adventure!
+              </p>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block"
+              >
+                <Link
+                  to="/contact"
+                  className="inline-block bg-gradient-gold text-foreground px-12 py-5 rounded-xl font-bold shadow-gold text-xl border-2 border-accent hover:shadow-glow transition-all duration-500"
+                >
+                  Get in Touch
+                </Link>
+              </motion.div>
+            </div>
           </Card>
         </motion.div>
       </div>
