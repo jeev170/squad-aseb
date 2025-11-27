@@ -8,83 +8,90 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 28 20% 97%;
-    --foreground: 0 25% 25%;
+    /* Luxurious cream background */
+    --background: 40 35% 96%;
+    --foreground: 0 0% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 25% 25%;
+    --card: 40 40% 98%;
+    --card-foreground: 0 0% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 25% 25%;
+    --popover: 40 40% 98%;
+    --popover-foreground: 0 0% 15%;
 
-    /* Patriotic maroon inspired by Rajya Sabha */
-    --primary: 6 50% 45%;
-    --primary-foreground: 0 0% 100%;
-    --primary-dark: 6 50% 35%;
-    --primary-light: 6 45% 55%;
+    /* Rich maroon - deeper and more sophisticated */
+    --primary: 0 65% 35%;
+    --primary-foreground: 40 50% 95%;
+    --primary-dark: 0 70% 25%;
+    --primary-light: 0 60% 45%;
 
-    /* Cream/gold accent */
-    --secondary: 36 45% 85%;
-    --secondary-foreground: 0 25% 25%;
+    /* Luxurious gold accent */
+    --secondary: 40 50% 85%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 36 25% 90%;
-    --muted-foreground: 0 15% 45%;
+    --muted: 40 30% 92%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 28 60% 50%;
-    --accent-foreground: 0 0% 100%;
+    /* Vibrant gold for accents */
+    --accent: 45 100% 50%;
+    --accent-foreground: 0 0% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 40 50% 95%;
 
-    --border: 36 20% 85%;
-    --input: 36 20% 85%;
-    --ring: 6 50% 45%;
+    --border: 40 25% 88%;
+    --input: 40 25% 88%;
+    --ring: 0 65% 35%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Gradient variables */
-    --gradient-patriotic: linear-gradient(135deg, hsl(6 50% 45%) 0%, hsl(6 45% 35%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(6 50% 45% / 0.95) 0%, hsl(6 50% 35% / 0.98) 100%);
+    /* Luxurious gradient variables */
+    --gradient-patriotic: linear-gradient(135deg, hsl(0 65% 35%) 0%, hsl(0 70% 25%) 50%, hsl(0 65% 30%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 65% 35% / 0.97) 0%, hsl(0 70% 25% / 0.99) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 60%) 0%, hsl(40 95% 55%) 50%, hsl(45 100% 50%) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(0 65% 35%) 0%, hsl(45 100% 50%) 100%);
+    --gradient-shimmer: linear-gradient(90deg, transparent, hsl(45 100% 70% / 0.3), transparent);
     
-    /* Shadow effects */
-    --shadow-elegant: 0 10px 40px -10px hsl(6 50% 25% / 0.3);
-    --shadow-soft: 0 4px 12px hsl(6 30% 30% / 0.1);
-    --shadow-glow: 0 0 60px -15px hsl(6 50% 45% / 0.6);
-    --shadow-brutal: 8px 8px 0px hsl(6 50% 45% / 0.2);
+    /* Enhanced shadow effects */
+    --shadow-elegant: 0 20px 60px -15px hsl(0 65% 20% / 0.4);
+    --shadow-soft: 0 4px 20px hsl(0 50% 30% / 0.15);
+    --shadow-glow: 0 0 80px -15px hsl(45 100% 50% / 0.7);
+    --shadow-brutal: 10px 10px 0px hsl(0 65% 35% / 0.25);
+    --shadow-gold: 0 10px 40px hsl(45 100% 50% / 0.3);
     
     /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-luxury: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .dark {
-    --background: 6 30% 10%;
-    --foreground: 36 45% 95%;
+    --background: 0 20% 8%;
+    --foreground: 40 50% 95%;
 
-    --card: 6 25% 12%;
-    --card-foreground: 36 45% 95%;
+    --card: 0 25% 10%;
+    --card-foreground: 40 50% 95%;
 
-    --popover: 6 25% 12%;
-    --popover-foreground: 36 45% 95%;
+    --popover: 0 25% 10%;
+    --popover-foreground: 40 50% 95%;
 
-    --primary: 6 55% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 60% 45%;
+    --primary-foreground: 40 50% 95%;
 
-    --secondary: 36 20% 20%;
-    --secondary-foreground: 36 45% 95%;
+    --secondary: 40 20% 20%;
+    --secondary-foreground: 40 50% 95%;
 
-    --muted: 36 15% 18%;
-    --muted-foreground: 36 20% 65%;
+    --muted: 0 15% 15%;
+    --muted-foreground: 40 30% 70%;
 
-    --accent: 28 55% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 95% 55%;
+    --accent-foreground: 0 0% 10%;
 
     --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 40 50% 95%;
 
-    --border: 36 15% 22%;
-    --input: 36 15% 22%;
-    --ring: 6 55% 55%;
+    --border: 0 20% 20%;
+    --input: 0 20% 20%;
+    --ring: 0 60% 45%;
   }
 }
 
@@ -100,23 +107,82 @@ All colors MUST be HSL.
 
 @layer utilities {
   .hover-float {
-    @apply transition-transform duration-300 ease-out hover:-translate-y-2;
+    @apply transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-elegant;
   }
   
   .hover-glow {
-    @apply transition-shadow duration-500 hover:shadow-glow;
+    @apply transition-all duration-700 hover:shadow-glow hover:scale-[1.02];
   }
   
   .glassmorphism {
-    @apply bg-background/70 backdrop-blur-xl border border-border/50;
+    @apply bg-background/80 backdrop-blur-2xl border border-border/50 shadow-elegant;
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    background: var(--gradient-luxury);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-gold-gradient {
+    background: var(--gradient-gold);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .scroll-smooth-offset {
     scroll-margin-top: 100px;
+  }
+  
+  .pattern-dots {
+    background-image: radial-gradient(circle, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .pattern-grid {
+    background-image: linear-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-shimmer);
+    animation: shimmer 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--accent) / 0.6);
+    }
   }
   
   .animate-slide-up {
