@@ -49,6 +49,8 @@ All colors MUST be HSL.
     /* Shadow effects */
     --shadow-elegant: 0 10px 40px -10px hsl(6 50% 25% / 0.3);
     --shadow-soft: 0 4px 12px hsl(6 30% 30% / 0.1);
+    --shadow-glow: 0 0 60px -15px hsl(6 50% 45% / 0.6);
+    --shadow-brutal: 8px 8px 0px hsl(6 50% 45% / 0.2);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -102,7 +104,19 @@ All colors MUST be HSL.
   }
   
   .hover-glow {
-    @apply transition-shadow duration-300 hover:shadow-elegant;
+    @apply transition-shadow duration-500 hover:shadow-glow;
+  }
+  
+  .glassmorphism {
+    @apply bg-background/70 backdrop-blur-xl border border-border/50;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .scroll-smooth-offset {
+    scroll-margin-top: 100px;
   }
   
   .animate-slide-up {

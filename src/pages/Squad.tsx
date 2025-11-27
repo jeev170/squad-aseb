@@ -48,10 +48,10 @@ const Squad = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-6xl font-serif font-bold text-primary mb-4">
+          <h1 className="text-7xl font-serif font-bold text-gradient mb-6">
             The Squad {displayYear}-{(parseInt(displayYear) + 1) % 100}
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-2xl text-muted-foreground">
             {isCurrentYear ? "Meet our current leadership team" : "Information to be updated soon"}
           </p>
         </motion.div>
@@ -64,30 +64,36 @@ const Squad = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -15, scale: 1.02 }}
               >
-                <Card className="overflow-hidden hover:shadow-elegant transition-all duration-500 group border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm h-full flex flex-col">
+                <Card className="overflow-hidden hover:shadow-glow transition-all duration-500 group border-2 hover:border-primary/50 glassmorphism h-full flex flex-col relative">
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    initial={false}
+                  />
+                  
                   <div className="aspect-square overflow-hidden relative">
                     <motion.img 
                       src={member.image} 
                       alt={member.name}
                       className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.5 }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.7 }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     <motion.div
                       initial={{ scale: 0, rotate: -180 }}
                       animate={{ scale: 1, rotate: 0 }}
-                      transition={{ delay: index * 0.1 + 0.3, type: "spring" }}
-                      className="absolute top-4 right-4 w-12 h-12 bg-accent/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg"
+                      transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      className="absolute top-4 right-4 w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center shadow-glow"
                     >
-                      <member.icon className="h-6 w-6 text-accent-foreground" />
+                      <member.icon className="h-7 w-7 text-accent-foreground" />
                     </motion.div>
                   </div>
                   
-                  <div className="p-6 flex-1 flex flex-col">
+                  <div className="p-6 flex-1 flex flex-col relative z-10">
                     <h3 className="text-2xl font-serif font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                       {member.name}
                     </h3>
