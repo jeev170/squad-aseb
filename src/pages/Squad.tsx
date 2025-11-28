@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { useParams } from "react-router-dom";
-import { Crown, Shield, Wallet, Sparkles } from "lucide-react";
+import { Crown, Shield, Wallet, Users, Instagram, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
 
@@ -14,56 +14,62 @@ const Squad = () => {
       name: "Student Name",
       position: "President",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      description: "Leading the squad with vision and dedication towards achieving our mission of blending patriotism with adventure.",
-      icon: Crown
+      description: "Leading the squad with vision and dedication towards achieving our mission.",
+      icon: Crown,
+      color: "from-accent to-gold-dark"
     },
     {
       name: "Student Name",
       position: "Vice President",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-      description: "Supporting club operations and coordinating events to ensure seamless execution of all activities.",
-      icon: Shield
+      description: "Supporting club operations and coordinating events seamlessly.",
+      icon: Shield,
+      color: "from-primary to-primary-dark"
     },
     {
       name: "Student Name",
       position: "Vice President",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-      description: "Managing member engagement and fostering a strong sense of community within the club.",
-      icon: Shield
+      description: "Managing member engagement and fostering community spirit.",
+      icon: Shield,
+      color: "from-burnt to-primary"
     },
     {
       name: "Student Name",
       position: "Treasurer",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-      description: "Overseeing financial planning and resource management to support all club initiatives.",
-      icon: Wallet
+      description: "Overseeing financial planning and resource management.",
+      icon: Wallet,
+      color: "from-accent to-burnt"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background py-24 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 pattern-dots opacity-30" />
+    <div className="min-h-screen bg-background pt-24 pb-16 px-4 relative overflow-hidden">
+      <div className="absolute inset-0 pattern-dots opacity-20" />
       <ParticleBackground />
       
       <div className="container mx-auto max-w-7xl relative z-10">
+        {/* Hero Header */}
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-            className="inline-block mb-6"
+          <motion.span
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", delay: 0.2 }}
+            className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm tracking-premium uppercase mb-6"
           >
-            <Sparkles className="h-20 w-20 text-accent mx-auto animate-pulse-glow" />
-          </motion.div>
-          <h1 className="text-8xl font-serif font-bold text-gradient mb-8">
-            The Squad {displayYear}-{(parseInt(displayYear) + 1) % 100}
+            <Users className="w-4 h-4 inline mr-2" />
+            Leadership Team
+          </motion.span>
+          <h1 className="text-hero font-serif font-bold text-gradient mb-4">
+            The Squad {displayYear}-{String(parseInt(displayYear) + 1).slice(-2)}
           </h1>
-          <p className="text-2xl text-muted-foreground font-medium">
+          <p className="text-xl text-muted-foreground">
             {isCurrentYear ? "Meet our current leadership team" : "Information to be updated soon"}
           </p>
         </motion.div>
@@ -75,69 +81,94 @@ const Squad = () => {
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15, type: "spring" }}
-                whileHover={{ y: -20, scale: 1.03 }}
-                className="group"
+                transition={{ duration: 0.6, delay: index * 0.15 }}
               >
-                <Card className="overflow-hidden hover:shadow-glow transition-all duration-700 group border-2 hover:border-accent/50 glassmorphism h-full flex flex-col relative">
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-gold opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"
-                  />
-                  
-                  <div className="aspect-square overflow-hidden relative">
-                    <motion.img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.15, rotate: 2 }}
-                      transition={{ duration: 0.8 }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/50 to-accent/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="h-full"
+                >
+                  <Card className="overflow-hidden h-full flex flex-col group border-2 border-transparent hover:border-accent/30 transition-all duration-500 bg-card relative">
+                    {/* Image Section */}
+                    <div className="relative">
+                      <div className="aspect-square overflow-hidden">
+                        <motion.img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.7 }}
+                        />
+                      </div>
+                      
+                      {/* Gradient Overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-t ${member.color} opacity-0 group-hover:opacity-40 transition-opacity duration-500`} />
+                      
+                      {/* Role Badge */}
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: index * 0.15 + 0.3, type: "spring" }}
+                        className={`absolute top-4 right-4 w-14 h-14 bg-gradient-to-br ${member.color} rounded-2xl flex items-center justify-center shadow-elegant`}
+                      >
+                        <member.icon className="h-7 w-7 text-primary-foreground" />
+                      </motion.div>
+                      
+                      {/* Social Links on Hover */}
+                      <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-10 h-10 rounded-full glassmorphism-dark flex items-center justify-center"
+                        >
+                          <Instagram className="w-5 h-5 text-primary-foreground" />
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-10 h-10 rounded-full glassmorphism-dark flex items-center justify-center"
+                        >
+                          <Mail className="w-5 h-5 text-primary-foreground" />
+                        </motion.button>
+                      </div>
+                    </div>
                     
-                    <motion.div
-                      initial={{ scale: 0, rotate: -180 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{ delay: index * 0.15 + 0.4, type: "spring", stiffness: 150 }}
-                      whileHover={{ rotate: 360, scale: 1.15 }}
-                      className="absolute top-5 right-5 w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center shadow-gold"
-                    >
-                      <member.icon className="h-8 w-8 text-foreground" />
-                    </motion.div>
-                  </div>
-                  
-                  <div className="p-8 flex-1 flex flex-col relative z-10">
-                    <h3 className="text-3xl font-serif font-bold text-foreground mb-3 group-hover:text-gradient transition-all duration-500">
-                      {member.name}
-                    </h3>
-                    <p className="text-xl text-primary font-bold mb-5">
-                      {member.position}
-                    </p>
-                    <p className="text-muted-foreground leading-relaxed text-base flex-1">
-                      {member.description}
-                    </p>
-                  </div>
-                </Card>
+                    {/* Content */}
+                    <div className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-2xl font-serif font-bold text-foreground mb-1 group-hover:text-gradient transition-all duration-500">
+                        {member.name}
+                      </h3>
+                      <p className="text-accent font-bold text-lg mb-4">
+                        {member.position}
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed flex-1">
+                        {member.description}
+                      </p>
+                    </div>
+                  </Card>
+                </motion.div>
               </motion.div>
             ))}
           </div>
         ) : (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <Card className="p-20 text-center shadow-glow border-2 border-accent/30 glassmorphism relative overflow-hidden">
+            <Card className="p-16 md:p-24 text-center glassmorphism border-2 border-accent/20 relative overflow-hidden">
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl"
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute top-0 right-0 w-80 h-80 bg-accent/10 rounded-full blur-[100px]"
               />
               <div className="relative z-10">
-                <h3 className="text-5xl font-serif font-bold text-gradient mb-6">
-                  Squad {displayYear}-{(parseInt(displayYear) + 1) % 100}
+                <Users className="w-20 h-20 text-accent mx-auto mb-8" />
+                <h3 className="text-4xl md:text-5xl font-serif font-bold text-gradient mb-6">
+                  Squad {displayYear}-{String(parseInt(displayYear) + 1).slice(-2)}
                 </h3>
-                <p className="text-2xl text-muted-foreground font-medium">
-                  Information for this year will be updated soon. Stay tuned!
+                <p className="text-xl text-muted-foreground max-w-lg mx-auto">
+                  Information for this year will be updated soon. Stay tuned for updates!
                 </p>
               </div>
             </Card>
