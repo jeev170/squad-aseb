@@ -1,15 +1,13 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Users, ArrowRight, Filter, Sparkles } from "lucide-react";
+import { Calendar, MapPin, Users, ArrowRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import ParticleBackground from "@/components/ParticleBackground";
 import MagneticButton from "@/components/MagneticButton";
 
 const Events = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
 
   const events = [
     {
@@ -74,11 +72,7 @@ const Events = () => {
     }
   ];
 
-  const categories = ["All", "Adventure", "Patriotic", "Workshop", "Cultural"];
-  
-  const filteredEvents = activeFilter === "All" 
-    ? events 
-    : events.filter(e => e.category === activeFilter);
+  const filteredEvents = events;
 
   const getCategoryColor = (category: string) => {
     switch(category) {
@@ -118,29 +112,6 @@ const Events = () => {
           </p>
         </motion.div>
 
-        {/* Filter Pills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setActiveFilter(category)}
-              className={`px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 ${
-                activeFilter === category
-                  ? "bg-gradient-gold text-foreground shadow-gold"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
-              }`}
-            >
-              {category}
-            </motion.button>
-          ))}
-        </motion.div>
 
         {/* Events Grid */}
         <motion.div 

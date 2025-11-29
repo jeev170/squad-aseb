@@ -48,7 +48,7 @@ const Footer = () => {
               <div>
                 <h3 className="font-serif font-bold text-xl">THE SQUAD</h3>
                 <p className="text-sm text-primary-foreground/60 tracking-premium uppercase">
-                  Patriotic & Adventure
+                  Patriotic & Adventure Club
                 </p>
               </div>
             </Link>
