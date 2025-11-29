@@ -2,10 +2,16 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Quote, Briefcase, GraduationCap, ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import ParticleBackground from "@/components/ParticleBackground";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
 import MagneticButton from "@/components/MagneticButton";
+
+// Import alumni images - replace these with your own images in src/assets/alumni/
+import alumni1 from "@/assets/alumni/alumni-1.jpg";
+import alumni2 from "@/assets/alumni/alumni-2.jpg";
+import alumni3 from "@/assets/alumni/alumni-3.jpg";
+import alumni4 from "@/assets/alumni/alumni-4.jpg";
+import alumni5 from "@/assets/alumni/alumni-5.jpg";
+import alumni6 from "@/assets/alumni/alumni-6.jpg";
 
 const Alumni = () => {
   const alumni = [
@@ -13,59 +19,52 @@ const Alumni = () => {
       name: "Rajesh Kumar",
       batch: "2019-20",
       current: "Indian Army Officer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-      testimonial: "The Squad shaped my leadership skills and instilled in me a deep sense of duty towards the nation."
+      image: alumni1,
+      testimonial: "The Squad shaped my leadership skills and instilled in me a deep sense of duty towards the nation. The experiences I gained here were truly transformative and continue to guide me in my career."
     },
     {
       name: "Priya Sharma",
       batch: "2018-19",
       current: "Adventure Tourism Entrepreneur",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop",
-      testimonial: "The Squad ignited my passion for adventure and taught me to combine it with purpose."
+      image: alumni2,
+      testimonial: "The Squad ignited my passion for adventure and taught me to combine it with purpose. Today, I run my own adventure tourism company, taking people on journeys that transform lives."
     },
     {
       name: "Arun Patel",
       batch: "2020-21",
       current: "Defense Analyst",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-      testimonial: "Being part of The Squad was transformative. The bonds I formed here remain strong."
+      image: alumni3,
+      testimonial: "Being part of The Squad was transformative. The bonds I formed here remain strong, and the discipline I learned has been invaluable in my career as a defense analyst."
     },
     {
       name: "Sneha Reddy",
       batch: "2017-18",
       current: "Social Worker & NGO Founder",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
-      testimonial: "The Squad taught me that true patriotism means serving the community."
+      image: alumni4,
+      testimonial: "The Squad taught me that true patriotism means serving the community. I founded my NGO to continue the spirit of service that was instilled in me during my time with The Squad."
     },
     {
       name: "Vikram Singh",
       batch: "2021-22",
       current: "Corporate Trainer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      testimonial: "The leadership experiences at The Squad gave me invaluable skills."
+      image: alumni5,
+      testimonial: "The leadership experiences at The Squad gave me invaluable skills that I now share with corporate teams. The principles of teamwork and dedication I learned are timeless."
     },
     {
       name: "Anjali Menon",
       batch: "2019-20",
       current: "Environmental Conservationist",
-      image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop",
-      testimonial: "Our expeditions opened my eyes to India's natural heritage and the need to protect it."
+      image: alumni6,
+      testimonial: "Our expeditions opened my eyes to India's natural heritage and the need to protect it. The Squad gave me both the passion and the skills to pursue environmental conservation."
     }
   ];
-
-  const carouselTestimonials = alumni.map(a => ({
-    name: a.name,
-    role: `${a.current} | Batch ${a.batch}`,
-    image: a.image,
-    quote: a.testimonial
-  }));
 
   return (
     <div className="min-h-screen bg-background pt-24 pb-16 px-4 relative overflow-hidden">
       <div className="absolute inset-0 pattern-grid opacity-20" />
       <ParticleBackground />
       
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="container mx-auto max-w-6xl relative z-10">
         {/* Hero Header */}
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
@@ -88,83 +87,68 @@ const Alumni = () => {
           </p>
         </motion.div>
 
-        {/* Testimonial Carousel */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <Card className="p-8 md:p-16 glassmorphism border-2 border-transparent hover:border-accent/20 transition-all duration-500">
-            <TestimonialCarousel testimonials={carouselTestimonials} />
-          </Card>
-        </motion.div>
-
-        {/* Alumni Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <h2 className="text-3xl font-serif font-bold text-gradient text-center mb-12">Meet Our Alumni</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {alumni.map((person, index) => (
+        {/* Alumni Alternating Layout */}
+        <div className="space-y-16 mb-24">
+          {alumni.map((person, index) => {
+            const isEven = index % 2 === 0;
+            
+            return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Card className="overflow-hidden h-full group border-2 border-transparent hover:border-accent/30 transition-all duration-500 bg-card">
-                    {/* Image */}
-                    <div className="relative h-48">
-                      <img 
-                        src={person.image} 
-                        alt={person.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
+                <Card className={`overflow-hidden border-2 border-transparent hover:border-accent/30 transition-all duration-500 bg-card`}>
+                  <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                    {/* Image Section */}
+                    <div className="md:w-2/5 relative">
+                      <div className="aspect-square md:aspect-auto md:h-full">
+                        <img 
+                          src={person.image} 
+                          alt={person.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      {/* Gradient Overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-${isEven ? 'r' : 'l'} from-transparent via-transparent to-card hidden md:block`} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:hidden" />
                       
                       {/* Batch Badge */}
-                      <div className="absolute top-4 right-4">
-                        <span className="px-3 py-1 bg-gradient-gold text-foreground font-bold text-sm rounded-full shadow-gold">
-                          {person.batch}
+                      <div className="absolute top-4 left-4">
+                        <span className="px-4 py-2 bg-gradient-gold text-foreground font-bold text-sm rounded-full shadow-gold">
+                          Batch {person.batch}
                         </span>
-                      </div>
-                      
-                      {/* Name overlay */}
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-2xl font-serif font-bold text-primary-foreground">
-                          {person.name}
-                        </h3>
-                        <div className="flex items-center gap-2 text-primary-foreground/80">
-                          <Briefcase className="w-4 h-4" />
-                          <span className="text-sm">{person.current}</span>
-                        </div>
                       </div>
                     </div>
                     
-                    {/* Content */}
-                    <div className="p-6">
+                    {/* Content Section */}
+                    <div className="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                      <div className="mb-6">
+                        <h3 className="text-3xl md:text-4xl font-serif font-bold text-gradient mb-2">
+                          {person.name}
+                        </h3>
+                        <div className="flex items-center gap-2 text-accent">
+                          <Briefcase className="w-5 h-5" />
+                          <span className="font-medium text-lg">{person.current}</span>
+                        </div>
+                      </div>
+                      
                       <div className="relative">
-                        <Quote className="absolute -left-2 -top-2 w-8 h-8 text-accent/20" />
-                        <p className="text-muted-foreground leading-relaxed pl-6 italic">
+                        <Quote className="absolute -left-2 -top-4 w-12 h-12 text-accent/20" />
+                        <p className="text-muted-foreground text-lg leading-relaxed pl-8 italic">
                           "{person.testimonial}"
                         </p>
+                        <Quote className="absolute right-0 bottom-0 w-12 h-12 text-accent/20 rotate-180" />
                       </div>
                     </div>
-                  </Card>
-                </motion.div>
+                  </div>
+                </Card>
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            );
+          })}
+        </div>
 
         {/* CTA Section */}
         <motion.div
