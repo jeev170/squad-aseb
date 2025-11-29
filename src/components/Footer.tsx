@@ -178,9 +178,7 @@ const Footer = () => {
           className="mt-16 pt-8 border-t border-primary-foreground/10"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-primary-foreground/50 text-sm">
-            <p className="flex items-center gap-2">
-              © {currentYear} THE SQUAD. Made with <Heart className="w-4 h-4 text-accent fill-accent" /> for the nation.
-            </p>
+            <p>© {currentYear} THE SQUAD</p>
             <p>Patriotic & Adventure Club, Amrita Vishwa Vidyapeetham</p>
           </div>
         </motion.div>

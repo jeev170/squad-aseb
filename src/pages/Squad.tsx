@@ -66,9 +66,12 @@ const Squad = () => {
             <Users className="w-4 h-4 inline mr-2" />
             Leadership Team
           </motion.span>
-          <h1 className="text-hero font-serif font-bold text-gradient mb-4">
+          <h1 className="text-hero font-serif font-bold text-gradient mb-2">
             The Squad {displayYear}-{String(parseInt(displayYear) + 1).slice(-2)}
           </h1>
+          <p className="text-2xl font-serif text-accent font-semibold mb-4">
+            Patriotic & Adventure Club
+          </p>
           <p className="text-xl text-muted-foreground">
             {isCurrentYear ? "Meet our current leadership team" : "Information to be updated soon"}
           </p>
