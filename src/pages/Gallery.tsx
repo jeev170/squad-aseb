@@ -5,7 +5,7 @@ import { X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
-  const imagesPerPage = 12;
+  const imagesPerPage = 5;
 
   const galleryImages = [
     { url: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=1200&h=800&fit=crop" },

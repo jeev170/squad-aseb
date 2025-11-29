@@ -82,7 +82,7 @@ const Navigation = () => {
                   THE SQUAD
                 </h1>
                 <p className="text-primary-foreground/70 text-xs tracking-premium uppercase">
-                  Patriotic & Adventure
+                  Patriotic & Adventure Club
                 </p>
               </div>
             </Link>
