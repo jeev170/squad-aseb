@@ -1,84 +1,55 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ZoomIn, ChevronLeft, ChevronRight, Camera } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const imagesPerPage = 12;
 
   const galleryImages = [
-    {
-      url: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=1200&h=800&fit=crop",
-      title: "Mountain Expedition 2024",
-      description: "Team reaching the summit",
-      span: "md:col-span-2 md:row-span-2"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop",
-      title: "Adventure Training",
-      description: "Members during outdoor activities",
-      span: "md:col-span-1 md:row-span-1"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1627873649417-c67f701f1949?w=1200&h=800&fit=crop",
-      title: "Independence Day 2024",
-      description: "Flag hoisting ceremony",
-      span: "md:col-span-1 md:row-span-1"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200&h=800&fit=crop",
-      title: "Team Building",
-      description: "Squad members during workshop",
-      span: "md:col-span-1 md:row-span-2"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&h=800&fit=crop",
-      title: "Trekking Adventure",
-      description: "Exploring nature trails",
-      span: "md:col-span-1 md:row-span-1"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=1200&h=800&fit=crop",
-      title: "Camping Experience",
-      description: "Night camp under stars",
-      span: "md:col-span-2 md:row-span-1"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop",
-      title: "Leadership Training",
-      description: "Team collaboration session",
-      span: "md:col-span-1 md:row-span-1"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=1200&h=800&fit=crop",
-      title: "Heritage Walk",
-      description: "Exploring historical sites",
-      span: "md:col-span-1 md:row-span-1"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1445346366695-5bf62de05412?w=1200&h=800&fit=crop",
-      title: "Camp Fire Nights",
-      description: "Bonding under the stars",
-      span: "md:col-span-1 md:row-span-2"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&h=800&fit=crop",
-      title: "Rock Climbing",
-      description: "Pushing physical limits",
-      span: "md:col-span-1 md:row-span-1"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=1200&h=800&fit=crop",
-      title: "River Rafting",
-      description: "Conquering the rapids",
-      span: "md:col-span-2 md:row-span-1"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1200&h=800&fit=crop",
-      title: "Group Activities",
-      description: "Building lasting friendships",
-      span: "md:col-span-1 md:row-span-1"
-    }
+    { url: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1627873649417-c67f701f1949?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1445346366695-5bf62de05412?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=1200&h=800&fit=crop" },
+    { url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1200&h=800&fit=crop" },
   ];
+
+  const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
+  const currentImages = galleryImages.slice(
+    currentPage * imagesPerPage,
+    (currentPage + 1) * imagesPerPage
+  );
+
+  // Auto-rotate pages every 5 seconds
+  useEffect(() => {
+    if (selectedImage !== null) return;
+    
+    const interval = setInterval(() => {
+      setCurrentPage((prev) => (prev + 1) % totalPages);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [totalPages, selectedImage]);
 
   const navigateImage = (direction: 'prev' | 'next') => {
     if (selectedImage === null) return;
@@ -87,6 +58,10 @@ const Gallery = () => {
     } else {
       setSelectedImage((selectedImage + 1) % galleryImages.length);
     }
+  };
+
+  const getGlobalIndex = (localIndex: number) => {
+    return currentPage * imagesPerPage + localIndex;
   };
 
   return (
@@ -114,49 +89,70 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        {/* Masonry Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[200px] gap-4">
-          {galleryImages.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className={`${image.span} group relative overflow-hidden rounded-2xl cursor-pointer`}
-              onClick={() => setSelectedImage(index)}
-            >
-              {/* Image */}
-              <img 
-                src={image.url} 
-                alt={image.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              
-              {/* Content */}
-              <motion.div 
-                className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500"
-                initial={false}
+        {/* Gallery Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPage}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+          >
+            {currentImages.map((image, index) => (
+              <motion.div
+                key={getGlobalIndex(index)}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer"
+                onClick={() => setSelectedImage(getGlobalIndex(index))}
               >
-                <h3 className="text-primary-foreground font-serif font-bold text-2xl mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  {image.title}
-                </h3>
-                <p className="text-primary-foreground/80 text-sm mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                  {image.description}
-                </p>
-                <div className="flex items-center gap-2 text-accent translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                  <ZoomIn className="w-4 h-4" />
-                  <span className="text-xs font-medium tracking-wide">Click to expand</span>
-                </div>
+                <img 
+                  src={image.url} 
+                  alt={`Gallery image ${getGlobalIndex(index) + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/30 transition-all duration-500" />
               </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
-              {/* Corner Accent */}
-              <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-accent/20 blur-xl group-hover:bg-accent/40 transition-all duration-500" />
-            </motion.div>
-          ))}
+        {/* Page Indicators */}
+        <div className="flex justify-center items-center gap-3 mt-10">
+          <button
+            onClick={() => setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages)}
+            className="w-10 h-10 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-all"
+          >
+            <ChevronLeft className="w-5 h-5 text-accent" />
+          </button>
+          
+          <div className="flex gap-2">
+            {Array.from({ length: totalPages }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentPage(idx)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentPage 
+                    ? 'w-8 bg-accent' 
+                    : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+              />
+            ))}
+          </div>
+          
+          <button
+            onClick={() => setCurrentPage((prev) => (prev + 1) % totalPages)}
+            className="w-10 h-10 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-all"
+          >
+            <ChevronRight className="w-5 h-5 text-accent" />
+          </button>
         </div>
+
+        <p className="text-center text-muted-foreground text-sm mt-4">
+          Auto-advances every 5 seconds • Page {currentPage + 1} of {totalPages}
+        </p>
 
         {/* Lightbox Modal */}
         <AnimatePresence>
@@ -168,7 +164,6 @@ const Gallery = () => {
               className="fixed inset-0 bg-foreground/95 backdrop-blur-xl z-50 flex items-center justify-center p-4"
               onClick={() => setSelectedImage(null)}
             >
-              {/* Close Button */}
               <motion.button
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -179,7 +174,6 @@ const Gallery = () => {
                 <X className="w-7 h-7 text-primary-foreground group-hover:rotate-90 transition-transform duration-300" />
               </motion.button>
               
-              {/* Navigation Buttons */}
               <motion.button
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -200,7 +194,6 @@ const Gallery = () => {
                 <ChevronRight className="w-7 h-7 text-primary-foreground" />
               </motion.button>
               
-              {/* Image */}
               <motion.div
                 key={selectedImage}
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -213,42 +206,16 @@ const Gallery = () => {
                 <div className="relative rounded-2xl overflow-hidden shadow-elegant">
                   <img 
                     src={galleryImages[selectedImage].url} 
-                    alt={galleryImages[selectedImage].title}
-                    className="w-full h-full object-contain max-h-[75vh]"
+                    alt={`Gallery image ${selectedImage + 1}`}
+                    className="w-full h-full object-contain max-h-[85vh]"
                   />
-                  
-                  {/* Caption */}
-                  <motion.div 
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    className="absolute bottom-0 left-0 right-0 glassmorphism-dark p-6 md:p-8"
-                  >
-                    <h3 className="text-primary-foreground font-serif font-bold text-2xl md:text-3xl mb-2">
-                      {galleryImages[selectedImage].title}
-                    </h3>
-                    <p className="text-primary-foreground/80">{galleryImages[selectedImage].description}</p>
-                  </motion.div>
                 </div>
               </motion.div>
 
-              {/* Dots Navigation */}
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-                {galleryImages.map((_, idx) => (
-                  <motion.button
-                    key={idx}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedImage(idx);
-                    }}
-                    whileHover={{ scale: 1.2 }}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      idx === selectedImage 
-                        ? 'w-8 bg-accent' 
-                        : 'w-2 bg-primary-foreground/30 hover:bg-primary-foreground/50'
-                    }`}
-                  />
-                ))}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 glassmorphism-dark rounded-full">
+                <span className="text-primary-foreground text-sm font-medium">
+                  {selectedImage + 1} / {galleryImages.length}
+                </span>
               </div>
             </motion.div>
           )}
