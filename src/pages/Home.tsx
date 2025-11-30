@@ -137,7 +137,7 @@ const Home = () => {
                 Where{" "}
                 <span className="text-gold-gradient font-bold not-italic">Patriotism</span>
                 {" "}Meets{" "}
-                <span className="text-burnt-gradient font-bold not-italic">Adventure</span>
+                <span className="text-gold-gradient font-bold not-italic">Adventure</span>
               </p>
             </motion.div>
             
