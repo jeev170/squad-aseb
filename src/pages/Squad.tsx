@@ -36,7 +36,7 @@ const Squad = () => {
       color: "from-burnt to-primary"
     },
     {
-      name: "S.J. Yatish",
+      name: "SJ Yatish",
       position: "Treasurer",
       image: "/images/squad/treasurer.jpg",
       description: "Driving the Squad’s spirit with precision and keeping our finances always in pole position.",
