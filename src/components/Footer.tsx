@@ -17,7 +17,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Instagram, href: "https://instagram.com/squad_aseb", label: "Instagram" },
-    { icon: Mail, href: "mailto:squad_aseb@gmail.com", label: "Email" },
+    { icon: Mail, href: "mailto:thesquadclub.aseb@gmail.com", label: "Email" },
   ];
 
   return (
@@ -54,7 +54,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-primary-foreground/70 leading-relaxed mb-6">
-              A vibrant community uniting the spirit of adventure with love for the nation since 2016.
+              A vibrant community uniting the spirit of adventure with love since 2016.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -123,10 +123,10 @@ const Footer = () => {
                 <div>
                   <p className="text-primary-foreground/90 font-medium">Email</p>
                   <a
-                    href="mailto:squad_aseb@gmail.com"
+                    href="mailto:thesquadclub.aseb@gmail.com"
                     className="text-primary-foreground/60 text-sm hover:text-accent transition-colors"
                   >
-                    squad_aseb@gmail.com
+                    thesquadclub.aseb@gmail.com
                   </a>
                 </div>
               </li>
