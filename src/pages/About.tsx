@@ -183,7 +183,7 @@ const About = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-16 overflow-visible"
           >
             <motion.span
               initial={{ scale: 0 }}
@@ -195,7 +195,7 @@ const About = () => {
               <Compass className="w-4 h-4 inline mr-2" />
               Our Goals
             </motion.span>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient mb-6 leading-tight pt-2">Our Objectives</h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient mb-6 leading-normal pt-4">Our Objectives</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               The guiding principles that drive every initiative
             </p>
