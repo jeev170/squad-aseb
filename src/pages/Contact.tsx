@@ -50,8 +50,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "squad_aseb@gmail.com",
-      href: "mailto:squad_aseb@gmail.com",
+      value: "thesquadclub.aseb@gmail.com",
+      href: "mailto:thesquadclub.aseb@gmail.com",
       description: "Drop us a line anytime"
     },
     {
