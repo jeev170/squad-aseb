@@ -112,86 +112,86 @@ const Contact = () => {
                 Send us a Message
               </h2>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-foreground font-medium">
-                      Name <span className="text-accent">*</span>
-                    </Label>
-                    <Input 
-                      id="name" 
-                      name="name" 
-                      required 
-                      placeholder="Your full name"
-                      className="h-12 bg-muted/50 border-2 focus:border-accent transition-colors"
-                    />
-                  </div>
+<form 
+  action="https://formsubmit.co/thesquadclub.aseb@gmail.com"
+  method="POST"
+  className="space-y-6"
+>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-foreground font-medium">
-                      Email <span className="text-accent">*</span>
-                    </Label>
-                    <Input 
-                      id="email" 
-                      name="email" 
-                      type="email" 
-                      required 
-                      placeholder="your.email@example.com"
-                      className="h-12 bg-muted/50 border-2 focus:border-accent transition-colors"
-                    />
-                  </div>
-                </div>
+  {/* Hidden settings */}
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_subject" value="New Contact Form Message" />
+  <input type="hidden" name="_template" value="table" />
 
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-foreground font-medium">
-                    Phone Number
-                  </Label>
-                  <Input 
-                    id="phone" 
-                    name="phone" 
-                    type="tel" 
-                    placeholder="+91 98765 43210"
-                    className="h-12 bg-muted/50 border-2 focus:border-accent transition-colors"
-                  />
-                </div>
+  <div className="grid md:grid-cols-2 gap-6">
+    <div className="space-y-2">
+      <Label htmlFor="name" className="text-foreground font-medium">
+        Name <span className="text-accent">*</span>
+      </Label>
+      <Input 
+        id="name" 
+        name="name" 
+        required 
+        placeholder="Your full name"
+        className="h-12 bg-muted/50 border-2 focus:border-accent transition-colors"
+      />
+    </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-foreground font-medium">
-                    Message <span className="text-accent">*</span>
-                  </Label>
-                  <Textarea 
-                    id="message" 
-                    name="message" 
-                    required 
-                    placeholder="Tell us what's on your mind..."
-                    className="min-h-[150px] bg-muted/50 border-2 focus:border-accent transition-colors resize-none"
-                  />
-                </div>
+    <div className="space-y-2">
+      <Label htmlFor="email" className="text-foreground font-medium">
+        Email <span className="text-accent">*</span>
+      </Label>
+      <Input 
+        id="email" 
+        name="email" 
+        type="email" 
+        required 
+        placeholder="your.email@example.com"
+        className="h-12 bg-muted/50 border-2 focus:border-accent transition-colors"
+      />
+    </div>
+  </div>
 
-                <MagneticButton className="w-full">
-                  <Button 
-                    type="submit" 
-                    className="w-full h-14 bg-gradient-gold text-foreground font-bold text-lg shadow-gold hover:shadow-neon transition-all duration-500"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center gap-2">
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          className="w-5 h-5 border-2 border-foreground/30 border-t-foreground rounded-full"
-                        />
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        <Send className="w-5 h-5" />
-                        Send Message
-                      </span>
-                    )}
-                  </Button>
-                </MagneticButton>
-              </form>
+  <div className="space-y-2">
+    <Label htmlFor="phone" className="text-foreground font-medium">
+      Phone Number
+    </Label>
+    <Input 
+      id="phone" 
+      name="phone" 
+      type="tel" 
+      placeholder="+91 98765 43210"
+      className="h-12 bg-muted/50 border-2 focus:border-accent transition-colors"
+    />
+  </div>
+
+  <div className="space-y-2">
+    <Label htmlFor="message" className="text-foreground font-medium">
+      Message <span className="text-accent">*</span>
+    </Label>
+    <Textarea 
+      id="message" 
+      name="message" 
+      required 
+      placeholder="Tell us what's on your mind..."
+      className="min-h-[150px] bg-muted/50 border-2 focus:border-accent transition-colors resize-none"
+    />
+  </div>
+
+  <MagneticButton className="w-full">
+    <Button 
+      type="submit" 
+      className="w-full h-14 bg-gradient-gold text-foreground font-bold text-lg shadow-gold hover:shadow-neon transition-all duration-500"
+    >
+      <span className="flex items-center gap-2">
+        <Send className="w-5 h-5" />
+        Send Message
+      </span>
+    </Button>
+  </MagneticButton>
+
+</form>
+
             </Card>
           </motion.div>
 
