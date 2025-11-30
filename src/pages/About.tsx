@@ -172,67 +172,74 @@ const About = () => {
         <SectionDivider variant="flag" />
 
         {/* Objectives Section */}
-        <motion.section 
-          className="scroll-smooth-offset mt-20 overflow-visible"
-          id="objectives"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+<motion.section 
+  className="scroll-smooth-offset mt-24 overflow-visible"
+  id="objectives"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+>
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="text-center mb-16 overflow-visible pt-4"
+  >
+    <motion.span
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ type: "spring", delay: 0.2 }}
+      className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm tracking-premium uppercase mb-10"
+    >
+      <Compass className="w-4 h-4 inline mr-2" />
+      Our Goals
+    </motion.span>
+
+    <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient mb-6 leading-normal pt-3">
+      Our Objectives
+    </h2>
+
+    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+      The guiding principles that drive every initiative
+    </p>
+  </motion.div>
+
+  <div className="grid md:grid-cols-2 gap-6 overflow-visible">
+    {objectives.map((objective, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="overflow-visible"
+      >
+        <motion.div
+          whileHover={{ y: -5, scale: 1.02 }}
+          transition={{ duration: 0.3 }}
+          className="overflow-visible"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16 overflow-visible"
-          >
-            <motion.span
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", delay: 0.2 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm tracking-premium uppercase mb-8"
-            >
-              <Compass className="w-4 h-4 inline mr-2" />
-              Our Goals
-            </motion.span>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient mb-6 leading-normal pt-4">Our Objectives</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The guiding principles that drive every initiative
-            </p>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {objectives.map((objective, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+          <Card className="p-6 h-full bg-card border-2 border-transparent hover:border-accent/30 transition-all duration-500 group overflow-visible">
+            <div className="flex gap-5 items-start overflow-visible">
+              <motion.div 
+                className="w-12 h-12 bg-gradient-patriotic rounded-xl flex items-center justify-center flex-shrink-0 shadow-elegant group-hover:shadow-gold transition-shadow"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
               >
-                <motion.div
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Card className="p-6 h-full bg-card border-2 border-transparent hover:border-accent/30 transition-all duration-500 group">
-                    <div className="flex gap-5 items-start">
-                      <motion.div 
-                        className="w-12 h-12 bg-gradient-patriotic rounded-xl flex items-center justify-center flex-shrink-0 shadow-elegant group-hover:shadow-gold transition-shadow"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <span className="text-primary-foreground font-bold text-lg">{index + 1}</span>
-                      </motion.div>
-                      <p className="text-foreground leading-relaxed text-lg group-hover:text-gradient transition-all duration-500 pt-2">
-                        {objective}
-                      </p>
-                    </div>
-                  </Card>
-                </motion.div>
+                <span className="text-primary-foreground font-bold text-lg">{index + 1}</span>
               </motion.div>
-            ))}
-          </div>
-        </motion.section>
+
+              <p className="text-foreground leading-relaxed text-lg group-hover:text-gradient transition-all duration-500 pt-2">
+                {objective}
+              </p>
+            </div>
+          </Card>
+        </motion.div>
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
       </div>
     </div>
   );
