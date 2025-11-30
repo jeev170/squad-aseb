@@ -105,7 +105,7 @@ const Events = () => {
             className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm tracking-premium uppercase mb-6"
           >
             <Calendar className="w-4 h-4 inline mr-2" />
-            Upcoming Activities
+            Our Activities
           </motion.span>
           <h1 className="text-hero font-serif font-bold text-gradient mb-6">Our Events</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
