@@ -47,7 +47,7 @@ const Events = () => {
       date: "October 29-30, 2025",
       location: "Amrita Vishwa Vidhyapeetham, Bengaluru",
       description: "Join the Aarohan Treasure Hunt for an action-packed adventure full of clues, challenges, and excitement—team up, think fast, and race to uncover the ultimate prize!",
-      attendees: 500+,
+      attendees: "500+",
       image: "/images/events/event-4.jpg",
       category: "Fun Event"
     },
