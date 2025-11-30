@@ -205,6 +205,29 @@ const About = () => {
     </p>
   </motion.div>
 
+  {/* ⭐ THIS WAS MISSING — your entire grid + map */}
+  <div className="grid md:grid-cols-2 gap-6">
+    {objectives.map((objective, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+      >
+        <motion.div
+          whileHover={{ y: -5, scale: 1.02 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Card className="p-6 h-full bg-card border-2 border-transparent hover:border-accent/30 transition-all duration-500 group">
+            <div className="flex gap-5 items-start">
+              <motion.div 
+                className="w-12 h-12 bg-gradient-patriotic rounded-xl flex items-center justify-center flex-shrink-0 shadow-elegant group-hover:shadow-gold transition-shadow"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="text-primary-foreground font-bold text-lg">{index + 1}</span>
+              </motion.div>
 
               <p className="text-foreground leading-relaxed text-lg group-hover:text-gradient transition-all duration-500 pt-2">
                 {objective}
@@ -216,6 +239,7 @@ const About = () => {
     ))}
   </div>
 </motion.section>
+
       </div>
     </div>
   );
