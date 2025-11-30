@@ -7,7 +7,7 @@ import {
   Play, ChevronDown, Zap
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import heroBanner from "@/assets/hero-banner.jpg";
+import heroBanner from "@/components/hero-banner.jpg";
 import ParticleBackground from "@/components/ParticleBackground";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Timeline from "@/components/Timeline";
