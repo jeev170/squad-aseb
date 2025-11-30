@@ -1,8 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Mail, BookOpen, Quote, Award, Heart } from "lucide-react";
-import mentorImage from "@/assets/mentor-placeholder.jpg";
 import { motion } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
+
+// Mentor image - upload to public/images/mentor.jpg
 
 const Mentor = () => {
   return (
@@ -61,7 +62,7 @@ const Mentor = () => {
                 >
                   <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-accent shadow-gold">
                     <img 
-                      src={mentorImage} 
+                      src="/images/mentor.jpg" 
                       alt="Dr. Shashi Kumar ME"
                       className="w-full h-full object-cover"
                     />
