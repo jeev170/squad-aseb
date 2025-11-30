@@ -179,15 +179,6 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{ y: [0, 12, 0], opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-primary-foreground/70 flex flex-col items-center gap-3"
-        >
-          <span className="text-xs tracking-ultra uppercase">Scroll</span>
-          <ChevronDown className="w-6 h-6" />
-        </motion.div>
       </section>
 
       {/* Impact Stats Section */}
