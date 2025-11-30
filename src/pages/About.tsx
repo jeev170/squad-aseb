@@ -173,7 +173,7 @@ const About = () => {
 
         {/* Objectives Section */}
         <motion.section 
-          className="scroll-smooth-offset"
+          className="scroll-smooth-offset mt-20"
           id="objectives"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
