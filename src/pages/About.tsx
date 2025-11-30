@@ -195,7 +195,7 @@ const About = () => {
               <Compass className="w-4 h-4 inline mr-2" />
               Our Goals
             </motion.span>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient mb-6">Our Objectives</h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient mb-6 leading-tight pt-2">Our Objectives</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               The guiding principles that drive every initiative
             </p>
