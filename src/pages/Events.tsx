@@ -28,7 +28,7 @@ const Events = () => {
       location: "Amrita Vishwa Vidhyapeetham, Bengaluru",
       description: "A grand celebration honoring our Independence Day with patriotic performances and flag hoisting.",
       attendees: 45,
-      image: "/images/events/event-2.jpg",
+      image: "/images/events/event-2.JPG",
       category: "Patriotic"
     },
     {
