@@ -49,15 +49,15 @@ const Events = () => {
       description: "Join the Aarohan Treasure Hunt for an action-packed adventure full of clues, challenges, and excitement—team up, think fast, and race to uncover the ultimate prize!",
       attendees: 500+,
       image: "/images/events/event-4.jpg",
-      category: "Fun event"
+      category: "Fun Event"
     },
     {
       id: 5,
       title: "Republic Day Parade 2026",
-      date: "January 26, 2025",
+      date: "January 26, 2026",
       location: "Amrita Vishwa Vidhyapeetham, Bengaluru",
       description: "A grand celebration honoring our Republic Day with patriotic performances and flag hoisting.",
-      attendees: TBA,
+      attendees: "TBA",
       image: "/images/events/event-5.jpg",
       category: "Patriotic"
     },
@@ -67,7 +67,7 @@ const Events = () => {
       date: "TBA",
       location: "TBA",
       description: "TBA",
-      attendees: TBA,
+      attendees: "TBA",
       image: "/images/events/event-6.jpg",
       category: "Adventure"
     }
