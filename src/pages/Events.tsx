@@ -80,7 +80,7 @@ const Events = () => {
       case "Adventure": return "bg-burnt text-burnt-foreground";
       case "Patriotic": return "bg-primary text-primary-foreground";
       case "Workshop": return "bg-accent text-accent-foreground";
-      case "Cultural": return "bg-primary-light text-primary-foreground";
+      case "Fun Event": return "bg-primary-light text-primary-foreground";
       default: return "bg-muted text-muted-foreground";
     }
   };
