@@ -100,7 +100,7 @@ const Navigation = () => {
                   {item.href ? (
                     <Link
                       to={item.href}
-                      className={`px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 relative group ${
+                      className={`px-4 py-2 text-sm font-medium tracking-wide whitespace-nowrap transition-all duration-300 relative group ${
                         location.pathname === item.href
                           ? "text-accent"
                           : "text-primary-foreground hover:text-accent"
@@ -111,7 +111,7 @@ const Navigation = () => {
                     </Link>
                   ) : (
                     <button
-                      className="flex items-center gap-1 px-4 py-2 text-sm font-medium tracking-wide text-primary-foreground hover:text-accent transition-all duration-300"
+                      className="flex items-center gap-1 px-4 py-2 text-sm font-medium tracking-wide whitespace-nowrap text-primary-foreground hover:text-accent transition-all duration-300"
                     >
                       {item.label}
                       <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === item.dropdown ? 'rotate-180' : ''}`} />
