@@ -17,7 +17,7 @@ const Events = () => {
       date: "August 7, 2025",
       location: "Amrita Vishwa Vidhyapeetham, Bengaluru",
       description: "Join us for an exciting Fun Games – Kalakriti event for freshers, packed with colorful activities, laughter, and unforgettable moments to kick-start your journey on a joyful note!",
-      attendees: 50+,
+      attendees: "50+",
       image: "/images/events/event-1.jpg",
       category: "Fun Event"
     },
