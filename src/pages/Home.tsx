@@ -13,7 +13,8 @@ import Timeline from "@/components/Timeline";
 import SectionDivider from "@/components/SectionDivider";
 import MagneticButton from "@/components/MagneticButton";
 
-// Hero banner - upload to public/images/hero-banner.jpg
+// Hero banner image
+const heroBanner = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&h=1080&fit=crop";
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
@@ -68,7 +69,7 @@ const Home = () => {
         >
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(/images/hero-banner.jpg)` }}
+            style={{ backgroundImage: `url(${heroBanner})` }}
           />
           <div className="absolute inset-0 bg-gradient-hero" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
