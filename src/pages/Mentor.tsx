@@ -123,7 +123,7 @@ const Mentor = () => {
                       Role in The Squad
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      As our guiding mentor, Dr. Kumar provides strategic direction and mentorship, 
+                      As our guiding mentor, Dr. Shashi Kumar ME provides strategic direction and mentorship, 
                       helping members develop essential leadership qualities and patriotic values. 
                       His vision has been instrumental in establishing the club's strong foundation.
                     </p>
