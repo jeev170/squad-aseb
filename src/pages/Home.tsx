@@ -18,7 +18,7 @@ const heroBanner = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1.2, 0]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1.5, 1.2]);
   const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.1]);
 
   const timelineItems = [
