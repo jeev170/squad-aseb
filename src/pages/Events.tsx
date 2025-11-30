@@ -39,7 +39,7 @@ const Events = () => {
       description: "Join us for an exhilarating two-day beach trek to Gokarna, exploring scenic coastlines, hidden coves, and breathtaking sunsets along the Arabian Sea.",
       attendees: 98,
       image: "/images/events/event-3.jpg",
-      category: "Adventure"
+      category: "Adventure" 
     },
     {
       id: 4,
