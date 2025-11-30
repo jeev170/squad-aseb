@@ -11,65 +11,65 @@ const Events = () => {
 
   // Events - upload images to public/images/events/ folder
   const events = [
-    {
+     {
       id: 1,
-      title: "Mountain Trek 2025",
-      date: "March 15-17, 2025",
-      location: "Western Ghats",
-      description: "Join us for an exhilarating three-day mountain trek through the beautiful Western Ghats.",
-      attendees: 45,
+      title: "Fun Games - Kalakriti'25",
+      date: "August 7, 2025",
+      location: "Amrita Vishwa Vidhyapeetham, Bengaluru",
+      description: "Join us for an exciting Fun Games – Kalakriti event for freshers, packed with colorful activities, laughter, and unforgettable moments to kick-start your journey on a joyful note!",
+      attendees: 50+,
       image: "/images/events/event-1.jpg",
-      category: "Adventure"
+      category: "Fun Event"
     },
     {
       id: 2,
-      title: "Republic Day Celebration",
-      date: "January 26, 2025",
-      location: "Campus Auditorium",
-      description: "A grand celebration honoring our Republic Day with patriotic performances and flag hoisting.",
-      attendees: 200,
+      title: "Independence Day Parade 2025",
+      date: "August 15, 2025",
+      location: "Amrita Vishwa Vidhyapeetham, Bengaluru",
+      description: "A grand celebration honoring our Independence Day with patriotic performances and flag hoisting.",
+      attendees: 45,
       image: "/images/events/event-2.jpg",
       category: "Patriotic"
     },
     {
       id: 3,
-      title: "Leadership Workshop",
-      date: "February 10, 2025",
-      location: "Training Hall",
-      description: "A comprehensive workshop focusing on leadership qualities and team management.",
-      attendees: 60,
+      title: "Outstation Trek 2025",
+      date: "September 27-28, 2025",
+      location: "Gokarna",
+      description: "Join us for an exhilarating two-day beach trek to Gokarna, exploring scenic coastlines, hidden coves, and breathtaking sunsets along the Arabian Sea.",
+      attendees: 98,
       image: "/images/events/event-3.jpg",
-      category: "Workshop"
-    },
-    {
-      id: 4,
-      title: "Heritage Walk",
-      date: "April 5, 2025",
-      location: "Historic Bangalore",
-      description: "Explore Bangalore's rich historical sites and cultural heritage.",
-      attendees: 35,
-      image: "/images/events/event-4.jpg",
-      category: "Cultural"
-    },
-    {
-      id: 5,
-      title: "Adventure Camp",
-      date: "May 20-23, 2025",
-      location: "Coorg",
-      description: "Intensive adventure camp featuring rock climbing, rappelling, and survival skills.",
-      attendees: 40,
-      image: "/images/events/event-5.jpg",
       category: "Adventure"
     },
     {
-      id: 6,
-      title: "Independence Day Rally",
-      date: "August 15, 2025",
-      location: "City Center",
-      description: "A patriotic rally commemorating India's Independence Day with marches and activities.",
-      attendees: 150,
-      image: "/images/events/event-6.jpg",
+      id: 4,
+      title: "Treasure Hunt - Aarohan'25",
+      date: "October 29-30, 2025",
+      location: "Amrita Vishwa Vidhyapeetham, Bengaluru",
+      description: "Join the Aarohan Treasure Hunt for an action-packed adventure full of clues, challenges, and excitement—team up, think fast, and race to uncover the ultimate prize!",
+      attendees: 500+,
+      image: "/images/events/event-4.jpg",
+      category: "Fun event"
+    },
+    {
+      id: 5,
+      title: "Republic Day Parade 2026",
+      date: "January 26, 2025",
+      location: "Amrita Vishwa Vidhyapeetham, Bengaluru",
+      description: "A grand celebration honoring our Republic Day with patriotic performances and flag hoisting.",
+      attendees: TBA,
+      image: "/images/events/event-5.jpg",
       category: "Patriotic"
+    },
+    {
+      id: 6,
+      title: "Outstation Trek 2026",
+      date: "TBA",
+      location: "TBA",
+      description: "TBA",
+      attendees: TBA,
+      image: "/images/events/event-6.jpg",
+      category: "Adventure"
     }
   ];
 
