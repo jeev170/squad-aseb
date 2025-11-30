@@ -57,7 +57,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <Card className="p-10 md:p-14 glassmorphism border-2 hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
+            <Card className="p-10 md:p-14 glassmorphism border-2 hover:border-accent/30 transition-all duration-500 relative">
               <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px]" />
               <p className="text-xl md:text-2xl text-foreground leading-relaxed relative z-10 font-medium">
                 The Squad Club is a vibrant community dedicated to uniting the spirit of adventure with love for the nation. 
@@ -190,7 +190,7 @@ const About = () => {
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: "spring", delay: 0.2 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm tracking-premium uppercase mb-6"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm tracking-premium uppercase mb-8"
             >
               <Compass className="w-4 h-4 inline mr-2" />
               Our Goals
