@@ -130,7 +130,7 @@ const Gallery = () => {
         </div>
 
         <p className="text-center text-muted-foreground text-sm mt-4">
-          Auto-advances every 5 seconds • Page {currentPage + 1} of {totalPages}
+         Page {currentPage + 1} of {totalPages}
         </p>
 
         {/* Lightbox Modal */}
