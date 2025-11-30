@@ -166,10 +166,10 @@ const Mentor = () => {
                   <div>
                     <p className="text-muted-foreground mb-1">For mentorship inquiries, contact through</p>
                     <a 
-                      href="mailto:squad_aseb@gmail.com" 
+                      href="mailto:thesquadclub.aseb@gmail.com" 
                       className="text-accent hover:text-accent/80 font-bold text-lg underline-reveal transition-colors"
                     >
-                      squad_aseb@gmail.com
+                      thesquadclub.aseb@gmail.com
                     </a>
                   </div>
                 </div>
