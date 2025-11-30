@@ -183,7 +183,7 @@ const About = () => {
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    className="text-center mb-16 overflow-visible pt-4"
+    className="text-center mb-16 overflow-visible pt-2"
   >
     <motion.span
       initial={{ scale: 0 }}
