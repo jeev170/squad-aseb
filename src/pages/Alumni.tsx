@@ -169,7 +169,7 @@ const Alumni = () => {
               </p>
               <MagneticButton>
                 <Button asChild size="lg" className="bg-gradient-gold text-foreground font-bold text-lg px-10 py-6 h-auto shadow-gold hover:shadow-neon transition-all duration-500">
-                  <a href="mailto:squad_aseb@gmail.com?subject=Alumni Testimonial" className="flex items-center gap-3">
+                  <a href="mailto:thesquadclub.aseb@gmail.com?subject=Alumni Testimonial" className="flex items-center gap-3">
                     Get in Touch
                     <ArrowRight className="w-5 h-5" />
                   </a>
