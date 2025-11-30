@@ -164,7 +164,7 @@ const Navigation = () => {
                   className="ml-4 bg-gradient-gold text-foreground font-bold shadow-gold hover:shadow-neon transition-all duration-300"
                 >
                   <a href="/brochure.pdf" download>
-                    BROCHURE
+                    ⤓ BROCHURE
                   </a>
                 </Button>
               </motion.div>
