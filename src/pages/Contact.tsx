@@ -7,30 +7,76 @@ import { Mail, MapPin, Instagram, Send, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
 import MagneticButton from "@/components/MagneticButton";
+import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
 
 const Contact = () => {
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const form = document.getElementById("contactForm") as HTMLFormElement | null;
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      // Unique subject to avoid email threading
+      const formData = new FormData(form);
+      formData.set("_subject", "New Squad Contact Message - " + Date.now());
+
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/thesquadclub.aseb@gmail.com", {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          toast({
+            title: "Message Sent!",
+            description: "Thank you for reaching out. We’ll get back to you soon.",
+          });
+          form.reset();
+        } else {
+          toast({
+            title: "Error",
+            description: "Failed to send message. Please try again.",
+            variant: "destructive",
+          });
+        }
+      } catch (error) {
+        toast({
+          title: "Network Error",
+          description: "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
+    });
+  }, [toast]);
+
   const contactInfo = [
     {
       icon: Mail,
       title: "Email",
       value: "thesquadclub.aseb@gmail.com",
       href: "mailto:thesquadclub.aseb@gmail.com",
-      description: "Drop us a line anytime"
+      description: "Drop us a line anytime",
     },
     {
       icon: Instagram,
       title: "Instagram",
       value: "@squad_aseb",
       href: "https://instagram.com/squad_aseb",
-      description: "Follow our adventures"
+      description: "Follow our adventures",
     },
     {
       icon: MapPin,
       title: "Location",
       value: "Amrita Vishwa Vidyapeetham",
       href: "#",
-      description: "Bengaluru Campus, Karnataka"
-    }
+      description: "Bengaluru Campus, Karnataka",
+    },
   ];
 
   return (
@@ -39,7 +85,6 @@ const Contact = () => {
       <div className="absolute inset-0 pattern-grid opacity-20" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
-
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -63,7 +108,6 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-8">
-
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -77,79 +121,35 @@ const Contact = () => {
                 Send us a Message
               </h2>
 
-              {/* FORM SUBMITS DIRECTLY TO FORMSubmit */}
-              <form
-                action="https://formsubmit.co/thesquadclub.aseb@gmail.com"
-                method="POST"
-                className="space-y-6"
-              >
-                {/* Hidden FormSubmit Controls */}
+              <form id="contactForm" className="space-y-6">
+                {/* FormSubmit hidden fields */}
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="New Contact Form Message" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_next" value="." />
-                {/* (optional redirect URL — change when ready) */}
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-foreground font-medium">
-                      Name <span className="text-accent">*</span>
-                    </Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      required
-                      placeholder="Your full name"
-                      className="h-12 bg-muted/50 border-2 focus:border-accent transition-colors"
-                    />
+                    <Label htmlFor="name">Name <span className="text-accent">*</span></Label>
+                    <Input id="name" name="name" required placeholder="Your full name" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-foreground font-medium">
-                      Email <span className="text-accent">*</span>
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="your.email@example.com"
-                      className="h-12 bg-muted/50 border-2 focus:border-accent transition-colors"
-                    />
+                    <Label htmlFor="email">Email <span className="text-accent">*</span></Label>
+                    <Input id="email" name="email" type="email" required placeholder="your.email@example.com" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-foreground font-medium">
-                    Phone Number
-                  </Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="+91 98765 43210"
-                    className="h-12 bg-muted/50 border-2 focus:border-accent transition-colors"
-                  />
+                  <Label htmlFor="phone">Phone Number</Label>
+                  <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-foreground font-medium">
-                    Message <span className="text-accent">*</span>
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    placeholder="Tell us what's on your mind..."
-                    className="min-h-[150px] bg-muted/50 border-2 focus:border-accent transition-colors resize-none"
-                  />
+                  <Label htmlFor="message">Message <span className="text-accent">*</span></Label>
+                  <Textarea id="message" name="message" required placeholder="Tell us what's on your mind..." />
                 </div>
 
                 <MagneticButton className="w-full">
-                  <Button
-                    type="submit"
-                    className="w-full h-14 bg-gradient-gold text-foreground font-bold text-lg shadow-gold hover:shadow-neon transition-all duration-500"
-                  >
+                  <Button className="w-full h-14 bg-gradient-gold text-foreground font-bold text-lg shadow-gold hover:shadow-neon transition-all duration-500">
                     <span className="flex items-center gap-2">
                       <Send className="w-5 h-5" />
                       Send Message
@@ -181,15 +181,13 @@ const Contact = () => {
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="p-6 glassmorphism border-2 border-transparent hover:border-accent/30 transition-all duration-500 group">
+                  <Card className="p-6 glassmorphism border-2 hover:border-accent/30 group">
                     <div className="flex items-start gap-4">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-gold flex items-center justify-center shadow-gold group-hover:shadow-neon transition-shadow">
                         <info.icon className="h-6 w-6 text-foreground" />
                       </div>
                       <div>
-                        <h3 className="font-serif font-bold text-foreground text-lg mb-1">
-                          {info.title}
-                        </h3>
+                        <h3 className="font-serif font-bold text-foreground text-lg mb-1">{info.title}</h3>
                         <p className="text-accent font-medium mb-1">{info.value}</p>
                         <p className="text-muted-foreground text-sm">{info.description}</p>
                       </div>
@@ -205,7 +203,7 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              <Card className="overflow-hidden border-2 hover:border-accent/30 transition-all duration-500">
+              <Card className="overflow-hidden border-2 hover:border-accent/30">
                 <div className="aspect-video">
                   <iframe
                     src="https://www.google.com/maps?q=12.9065826,77.6865052&z=17&output=embed"
@@ -214,9 +212,8 @@ const Contact = () => {
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Amrita Vishwa Vidyapeetham Bengaluru Campus"
                     className="grayscale hover:grayscale-0 transition-all duration-500"
+                    title="Amrita Campus"
                   />
                 </div>
               </Card>
