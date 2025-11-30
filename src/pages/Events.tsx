@@ -9,6 +9,7 @@ import MagneticButton from "@/components/MagneticButton";
 
 const Events = () => {
 
+  // Events - upload images to public/images/events/ folder
   const events = [
     {
       id: 1,
@@ -17,7 +18,7 @@ const Events = () => {
       location: "Western Ghats",
       description: "Join us for an exhilarating three-day mountain trek through the beautiful Western Ghats.",
       attendees: 45,
-      image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=600&fit=crop",
+      image: "/images/events/event-1.jpg",
       category: "Adventure"
     },
     {
@@ -27,7 +28,7 @@ const Events = () => {
       location: "Campus Auditorium",
       description: "A grand celebration honoring our Republic Day with patriotic performances and flag hoisting.",
       attendees: 200,
-      image: "https://images.unsplash.com/photo-1611329857570-f02f340e7378?w=800&h=600&fit=crop",
+      image: "/images/events/event-2.jpg",
       category: "Patriotic"
     },
     {
@@ -37,7 +38,7 @@ const Events = () => {
       location: "Training Hall",
       description: "A comprehensive workshop focusing on leadership qualities and team management.",
       attendees: 60,
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
+      image: "/images/events/event-3.jpg",
       category: "Workshop"
     },
     {
@@ -47,7 +48,7 @@ const Events = () => {
       location: "Historic Bangalore",
       description: "Explore Bangalore's rich historical sites and cultural heritage.",
       attendees: 35,
-      image: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=800&h=600&fit=crop",
+      image: "/images/events/event-4.jpg",
       category: "Cultural"
     },
     {
@@ -57,7 +58,7 @@ const Events = () => {
       location: "Coorg",
       description: "Intensive adventure camp featuring rock climbing, rappelling, and survival skills.",
       attendees: 40,
-      image: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&h=600&fit=crop",
+      image: "/images/events/event-5.jpg",
       category: "Adventure"
     },
     {
@@ -67,7 +68,7 @@ const Events = () => {
       location: "City Center",
       description: "A patriotic rally commemorating India's Independence Day with marches and activities.",
       attendees: 150,
-      image: "https://images.unsplash.com/photo-1627873649417-c67f701f1949?w=800&h=600&fit=crop",
+      image: "/images/events/event-6.jpg",
       category: "Patriotic"
     }
   ];
