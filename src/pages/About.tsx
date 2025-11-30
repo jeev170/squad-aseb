@@ -196,7 +196,7 @@ const About = () => {
       Our Goals
     </motion.span>
 
-    <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient leading-normal pt-2 mb-4">
+    <h2 className="text-4xl md:text-4xl font-serif font-bold text-gradient leading-normal pt-2 mb-4">
       Our Objectives
     </h2>
 
