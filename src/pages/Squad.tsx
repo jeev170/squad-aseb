@@ -12,34 +12,34 @@ const Squad = () => {
   // Team members - upload images to public/images/squad/ folder
   const currentTeam = [
     {
-      name: "Student Name",
+      name: "V Govardhan Datta",
       position: "President",
       image: "/images/squad/president.jpg",
-      description: "Leading the squad with vision and dedication towards achieving our mission.",
+      description: "Leading The Squad with passion, purpose, and patriotism - fueling adventure that build courage, unity and pride.",
       icon: Crown,
       color: "from-accent to-gold-dark"
     },
     {
-      name: "Student Name",
+      name: "Shreepriya P Soraba",
       position: "Vice President",
       image: "/images/squad/vp-1.jpg",
-      description: "Supporting club operations and coordinating events seamlessly.",
+      description: "Big on smiles, low on words. Here to help and never let anyone miss out on the fun!",
       icon: Shield,
       color: "from-primary to-primary-dark"
     },
     {
-      name: "Student Name",
+      name: "K Haripriya",
       position: "Vice President",
       image: "/images/squad/vp-2.jpg",
-      description: "Managing member engagement and fostering community spirit.",
+      description: "Built with grit and a sprinkle of sparkle. Always down to help, never quits till the job’s done!",
       icon: Shield,
       color: "from-burnt to-primary"
     },
     {
-      name: "Student Name",
+      name: "S.J. Yatish",
       position: "Treasurer",
       image: "/images/squad/treasurer.jpg",
-      description: "Overseeing financial planning and resource management.",
+      description: "Driving the Squad’s spirit with precision and keeping our finances always in pole position.",
       icon: Wallet,
       color: "from-accent to-burnt"
     }
