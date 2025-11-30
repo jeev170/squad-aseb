@@ -188,10 +188,10 @@ const Home = () => {
         <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
-              { value: 500, suffix: "+", label: "Active Members", icon: Users },
+              { value: 300, suffix: "+", label: "Members", icon: Users },
               { value: 50, suffix: "+", label: "Events Organized", icon: Calendar },
-              { value: 10, suffix: "+", label: "Years of Excellence", icon: Trophy },
-              { value: 25, suffix: "+", label: "Adventure Treks", icon: Mountain },
+              { value: 10, suffix: "", label: "Years of Excellence", icon: Trophy },
+              { value: 10, suffix: "+", label: "Adventure Treks", icon: Mountain },
             ].map((stat, index) => (
               <motion.div
                 key={index}
