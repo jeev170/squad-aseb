@@ -7,14 +7,13 @@ import {
   Play, ChevronDown, Zap
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import heroBanner from "@/assets/hero-banner.jpg";
 import ParticleBackground from "@/components/ParticleBackground";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Timeline from "@/components/Timeline";
 import SectionDivider from "@/components/SectionDivider";
 import MagneticButton from "@/components/MagneticButton";
 
-// Hero banner image
-const heroBanner = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&h=1080&fit=crop";
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
