@@ -87,6 +87,7 @@ const Contact = () => {
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_subject" value="New Contact Form Message" />
                 <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value="." />
                 {/* (optional redirect URL — change when ready) */}
 
                 <div className="grid md:grid-cols-2 gap-6">
