@@ -7,32 +7,11 @@ const Gallery = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const imagesPerPage = 12;
 
-  const galleryImages = [
-    { url: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1627873649417-c67f701f1949?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1445346366695-5bf62de05412?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=1200&h=800&fit=crop" },
-    { url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1200&h=800&fit=crop" },
-  ];
+  // Gallery images - upload to public/images/gallery/ folder
+  // Name them: gallery-1.jpg, gallery-2.jpg, etc.
+  const galleryImages = Array.from({ length: 24 }, (_, i) => ({
+    url: `/images/gallery/gallery-${i + 1}.jpg`
+  }));
 
   const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
   const currentImages = galleryImages.slice(

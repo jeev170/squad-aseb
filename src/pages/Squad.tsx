@@ -9,11 +9,12 @@ const Squad = () => {
   const displayYear = year || "2025";
   const isCurrentYear = displayYear === "2025";
 
+  // Team members - upload images to public/images/squad/ folder
   const currentTeam = [
     {
       name: "Student Name",
       position: "President",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      image: "/images/squad/president.jpg",
       description: "Leading the squad with vision and dedication towards achieving our mission.",
       icon: Crown,
       color: "from-accent to-gold-dark"
@@ -21,7 +22,7 @@ const Squad = () => {
     {
       name: "Student Name",
       position: "Vice President",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+      image: "/images/squad/vp-1.jpg",
       description: "Supporting club operations and coordinating events seamlessly.",
       icon: Shield,
       color: "from-primary to-primary-dark"
@@ -29,7 +30,7 @@ const Squad = () => {
     {
       name: "Student Name",
       position: "Vice President",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+      image: "/images/squad/vp-2.jpg",
       description: "Managing member engagement and fostering community spirit.",
       icon: Shield,
       color: "from-burnt to-primary"
@@ -37,7 +38,7 @@ const Squad = () => {
     {
       name: "Student Name",
       position: "Treasurer",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+      image: "/images/squad/treasurer.jpg",
       description: "Overseeing financial planning and resource management.",
       icon: Wallet,
       color: "from-accent to-burnt"
