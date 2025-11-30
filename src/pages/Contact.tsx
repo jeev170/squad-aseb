@@ -206,8 +206,7 @@ const Contact = () => {
               <Card className="overflow-hidden border-2 hover:border-accent/30">
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.695348473493!2d77.67688647520547!3d12.884031087426566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13e06c59fead%3A0x73f6f92c0ab62b97!2sAmrita%20Vishwa%20Vidyapeetham%2C%20Bengaluru%20Campus!5e0!3m2!1sen!2sin!4v1707042812345
-"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.695348473493!2d77.67688647520547!3d12.884031087426566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13e06c59fead%3A0x73f6f92c0ab62b97!2sAmrita%20Vishwa%20Vidyapeetham%2C%20Bengaluru%20Campus!5e0!3m2!1sen!2sin!4v1707042812345"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
