@@ -3,7 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import squadLogo from "@/assets/squad-logo.png";
+
+// Logo - upload to public/images/squad-logo.png
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,7 +72,7 @@ const Navigation = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <motion.img
-                src={squadLogo}
+                src="/images/squad-logo.png"
                 alt="The Squad Logo"
                 className="h-12 w-12 md:h-14 md:w-14"
                 whileHover={{ scale: 1.1, rotate: 5 }}

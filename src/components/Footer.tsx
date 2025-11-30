@@ -1,7 +1,8 @@
 import { Instagram, Mail, MapPin, ArrowUpRight, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import squadLogo from "@/assets/squad-logo.png";
+
+// Logo - upload to public/images/squad-logo.png
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -40,7 +41,7 @@ const Footer = () => {
           >
             <Link to="/" className="flex items-center gap-3 mb-6 group">
               <motion.img
-                src={squadLogo}
+                src="/images/squad-logo.png"
                 alt="The Squad Logo"
                 className="h-14 w-14"
                 whileHover={{ scale: 1.1, rotate: 5 }}

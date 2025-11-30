@@ -6,13 +6,14 @@ import {
   Sparkles, TrendingUp, Trophy, Compass, Star, ArrowRight,
   Play, ChevronDown, Zap
 } from "lucide-react";
-import heroBanner from "@/assets/hero-banner.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Timeline from "@/components/Timeline";
 import SectionDivider from "@/components/SectionDivider";
 import MagneticButton from "@/components/MagneticButton";
+
+// Hero banner - upload to public/images/hero-banner.jpg
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
@@ -67,7 +68,7 @@ const Home = () => {
         >
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroBanner})` }}
+            style={{ backgroundImage: `url(/images/hero-banner.jpg)` }}
           />
           <div className="absolute inset-0 bg-gradient-hero" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />

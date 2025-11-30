@@ -5,13 +5,8 @@ import { motion } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
 import MagneticButton from "@/components/MagneticButton";
 
-// Import alumni images - replace these with your own images in src/assets/alumni/
-import alumni1 from "@/assets/alumni/alumni-1.jpg";
-import alumni2 from "@/assets/alumni/alumni-2.jpg";
-import alumni3 from "@/assets/alumni/alumni-3.jpg";
-import alumni4 from "@/assets/alumni/alumni-4.jpg";
-import alumni5 from "@/assets/alumni/alumni-5.jpg";
-import alumni6 from "@/assets/alumni/alumni-6.jpg";
+// Alumni images - upload your images to public/images/alumni/ folder
+// Name them: alumni-1.jpg, alumni-2.jpg, etc.
 
 const Alumni = () => {
   const alumni = [
@@ -19,42 +14,42 @@ const Alumni = () => {
       name: "Rajesh Kumar",
       batch: "2019-20",
       current: "Indian Army Officer",
-      image: alumni1,
+      image: "/images/alumni/alumni-1.jpg",
       testimonial: "The Squad shaped my leadership skills and instilled in me a deep sense of duty towards the nation. The experiences I gained here were truly transformative and continue to guide me in my career."
     },
     {
       name: "Priya Sharma",
       batch: "2018-19",
       current: "Adventure Tourism Entrepreneur",
-      image: alumni2,
+      image: "/images/alumni/alumni-2.jpg",
       testimonial: "The Squad ignited my passion for adventure and taught me to combine it with purpose. Today, I run my own adventure tourism company, taking people on journeys that transform lives."
     },
     {
       name: "Arun Patel",
       batch: "2020-21",
       current: "Defense Analyst",
-      image: alumni3,
+      image: "/images/alumni/alumni-3.jpg",
       testimonial: "Being part of The Squad was transformative. The bonds I formed here remain strong, and the discipline I learned has been invaluable in my career as a defense analyst."
     },
     {
       name: "Sneha Reddy",
       batch: "2017-18",
       current: "Social Worker & NGO Founder",
-      image: alumni4,
+      image: "/images/alumni/alumni-4.jpg",
       testimonial: "The Squad taught me that true patriotism means serving the community. I founded my NGO to continue the spirit of service that was instilled in me during my time with The Squad."
     },
     {
       name: "Vikram Singh",
       batch: "2021-22",
       current: "Corporate Trainer",
-      image: alumni5,
+      image: "/images/alumni/alumni-5.jpg",
       testimonial: "The leadership experiences at The Squad gave me invaluable skills that I now share with corporate teams. The principles of teamwork and dedication I learned are timeless."
     },
     {
       name: "Anjali Menon",
       batch: "2019-20",
       current: "Environmental Conservationist",
-      image: alumni6,
+      image: "/images/alumni/alumni-6.jpg",
       testimonial: "Our expeditions opened my eyes to India's natural heritage and the need to protect it. The Squad gave me both the passion and the skills to pursue environmental conservation."
     }
   ];
