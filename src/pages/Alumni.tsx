@@ -251,7 +251,7 @@ const Alumni = () => {
                         {/* Batch Badge */}
                         <div className="absolute top-4 left-4">
                           <span className="px-4 py-2 bg-gradient-gold text-foreground font-bold text-sm rounded-full shadow-gold">
-                            Batch {person.batch}
+                            {person.batch}
                           </span>
                         </div>
                       </div>
