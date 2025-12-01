@@ -114,14 +114,14 @@ const Alumni = () => {
     },
     {
       name: "Samhita",
-      batch: "Vice president(2023-24)",
+      batch: "Vice President(2023-24)",
       current: "Position",
       image: "/images/alumni/alumni-15.jpg",
       testimonial: "Squad has been a life-changing experience that shaped my character and values. It nurtured my leadership, teamwork, and sense of patriotism while connecting me to a meaningful purpose. The club became a family that inspired integrity, service, and pride, leaving me with lasting memories and lessons for life."
     },
     {
       name: "Akanksha",
-      batch: "Vice president(2023-24)",
+      batch: "Vice President(2023-24)",
       current: "Position",
       image: "/images/alumni/alumni-16.jpg",
       testimonial: "Serving as the Vice President of Squad has been a truly transformative journey. Through adventurous treks and patriotic initiatives, I developed leadership, teamwork, and discipline. The experiences, challenges, and friendships shaped me deeply, leaving lasting memories. I’ll always be grateful to Squad for inspiring growth, pride, and lifelong connections."
