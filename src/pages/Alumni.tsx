@@ -16,45 +16,45 @@ const Alumni = () => {
   const alumni = [
     {
       name: "LT. Nirmal",
-      batch: "2016-20",
+      batch: "Member, 2016-20",
       current: "Indian Navy Officer",
       image: "/images/alumni/alumni-1.jpg",
       testimonial: "Being part of the Squad from my first year was a defining experience. Playing side drums and performing drills on national days taught me teamwork, discipline, and leadership. Guided by Shashi Sir, I grew immensely, and those lessons became the foundation of my journey to the Indian Navy."
     },
     {
-      name: "Priya Sharma",
-      batch: "2018-19",
-      current: "Adventure Tourism Entrepreneur",
+      name: "Guna",
+      batch: "Secretary, 2016-17",
+      current: "",
       image: "/images/alumni/alumni-2.jpg",
-      testimonial: "The Squad ignited my passion for adventure and taught me to combine it with purpose. Today, I run my own adventure tourism company, taking people on journeys that transform lives."
+      testimonial: "My role as Secretary of The Squad stands out as one of the most rewarding experiences of my college life. From adventurous treks to patriotic parades, every activity strengthened teamwork, discipline, and pride. With the guidance of supportive mentors, I grew as both a leader and an explorer. The Squad gifted me unforgettable memories and lifelong lessons."
     },
     {
-      name: "Arun Patel",
-      batch: "2020-21",
-      current: "Defense Analyst",
+      name: "Varun Raj",
+      batch: "Member, 2016-20",
+      current: "",
       image: "/images/alumni/alumni-3.jpg",
-      testimonial: "Being part of The Squad was transformative. The bonds I formed here remain strong, and the discipline I learned has been invaluable in my career as a defense analyst."
+      testimonial: "Squad, the adventure club, has given me a memorable and inspiring journey. It taught me discipline, teamwork, and self-discovery through treks and events like the Republic Day march past. With guidance from our mentor Shashi Kumar Sir, I gained confidence, character, and lifelong memories that truly shaped my college experience."
     },
     {
-      name: "Sneha Reddy",
-      batch: "2017-18",
-      current: "Social Worker & NGO Founder",
+      name: "Abhinav",
+      batch: "Secretary, 2018-19",
+      current: "",
       image: "/images/alumni/alumni-4.jpg",
-      testimonial: "The Squad taught me that true patriotism means serving the community. I founded my NGO to continue the spirit of service that was instilled in me during my time with The Squad."
+      testimonial: "My journey with Squad began with a failed parade selection in 2016 but turned into a path of growth and leadership. Through perseverance and teamwork, I rose to lead the club. Squad taught me resilience, trust, and mentorship, giving me a family that shaped my character and strengthened my purpose."
     },
     {
-      name: "Vikram Singh",
-      batch: "2021-22",
-      current: "Corporate Trainer",
+      name: "Sri Harsha",
+      batch: "Joint Secretary, 2018-19",
+      current: "",
       image: "/images/alumni/alumni-5.jpg",
-      testimonial: "The leadership experiences at The Squad gave me invaluable skills that I now share with corporate teams. The principles of teamwork and dedication I learned are timeless."
+      testimonial: "Discovering The Squad at Amrita felt like finding my true calling. From a passionate member to joint secretary and Best Cadet, the journey taught me discipline, perseverance, and humility. The Squad became a family that shaped my leadership, confidence, and purpose, leaving an everlasting impact on my college life."
     },
     {
-      name: "Anjali Menon",
-      batch: "2019-20",
-      current: "Environmental Conservationist",
+      name: "Aravind",
+      batch: "Mmeber, 2018-22",
+      current: "",
       image: "/images/alumni/alumni-6.jpg",
-      testimonial: "Our expeditions opened my eyes to India's natural heritage and the need to protect it. The Squad gave me both the passion and the skills to pursue environmental conservation."
+      testimonial: "Squad offered a transformative journey that deeply influenced my growth and character. Earning three gold stars reflected perseverance, teamwork, and excellence. It strengthened my leadership and mentoring abilities while giving me lifelong friendships and memories. Even after graduation, I proudly continue to support Squad’s lasting spirit and mission."
     },
     {
       name: "Alumni 7",
