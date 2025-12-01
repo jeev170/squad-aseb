@@ -15,11 +15,11 @@ const Alumni = () => {
 
   const alumni = [
     {
-      name: "Rajesh Kumar",
-      batch: "2019-20",
-      current: "Indian Army Officer",
+      name: "LT. Nirmal",
+      batch: "2016-20",
+      current: "Indian Navy Officer",
       image: "/images/alumni/alumni-1.jpg",
-      testimonial: "The Squad shaped my leadership skills and instilled in me a deep sense of duty towards the nation. The experiences I gained here were truly transformative and continue to guide me in my career."
+      testimonial: "Being part of the Squad from my first year was a defining experience. Playing side drums and performing drills on national days taught me teamwork, discipline, and leadership. Guided by Shashi Sir, I grew immensely, and those lessons became the foundation of my journey to the Indian Navy."
     },
     {
       name: "Priya Sharma",
