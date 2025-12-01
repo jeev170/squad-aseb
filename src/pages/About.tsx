@@ -20,9 +20,9 @@ const About = () => {
 
   const objectives = [
     "To induce the traits of discipline and responsibility among the student community and guide them towards careers in the Indian Defence Forces.",
-    "To inculcate patriotism among the students and mold them into responsible citizens of India.",
+    "Foster a strong sense of camaraderie and teamwork among members through collaborative activities and events.",
     "To ignite the spirit of adventures as it lights up the inner soul.",
-    "Foster a strong sense of camaraderie and teamwork among members through collaborative activities and events."
+    "To inculcate patriotism among the students and mold them into responsible citizens of India."
   ];
 
   return (
@@ -59,7 +59,7 @@ const About = () => {
           >
             <Card className="p-10 md:p-14 glassmorphism border-2 hover:border-accent/30 transition-all duration-500 relative">
               <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px]" />
-              <p className="text-xl md:text-2xl text-foreground leading-relaxed relative z-10 font-medium">
+              <p className="text-xl md:text-2xl text-foreground leading-relaxed relative z-10 font-medium text-justify">
                 The Squad Club is a vibrant community dedicated to uniting the spirit of adventure with love for the nation. 
                 Our mission is to inspire students to explore the beauty, history, and values of our country through engaging 
                 outdoor experiences and meaningful patriotic initiatives. We strive to build a platform where enthusiasm for 
@@ -97,7 +97,7 @@ const About = () => {
                 </motion.div>
                 <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient">Our Mission</h2>
               </div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
                 Our mission is to foster a dynamic community that intertwines patriotism with adventure, encouraging members 
                 to actively engage in activities that celebrate and explore our nation's heritage.
               </p>
@@ -110,7 +110,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-l-4 border-primary hover:shadow-elegant transition-all duration-500">
-                <p className="text-foreground leading-relaxed text-lg">
+                <p className="text-foreground leading-relaxed text-lg text-justify">
                   Through a blend of outdoor adventures and patriotic events, we aim to inspire a deep appreciation for our 
                   country, cultivate a sense of national pride, and promote a spirit of exploration and contribution to our 
                   shared legacy.
@@ -137,7 +137,7 @@ const About = () => {
               className="order-2 md:order-1"
             >
               <Card className="p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-l-4 border-accent hover:shadow-elegant transition-all duration-500">
-                <p className="text-foreground leading-relaxed text-lg">
+                <p className="text-foreground leading-relaxed text-lg text-justify">
                   We envision a club where patriotism and adventure converge to strengthen connections to our nation's values. 
                   We endeavour to establish a community that honours and enhances our rich heritage by combining exhilarating 
                   experiences with a profound sense of national pride while embracing the spirit of exploration.
@@ -162,7 +162,7 @@ const About = () => {
                 </motion.div>
                 <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient">Our Vision</h2>
               </div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
                 Building a community where every member becomes an ambassador of national pride and adventurous spirit.
               </p>
             </motion.div>
@@ -200,7 +200,7 @@ const About = () => {
       Our Objectives
     </h2>
 
-    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+    <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-justify">
       The guiding principles that drive every initiative
     </p>
   </motion.div>
@@ -229,7 +229,7 @@ const About = () => {
                 <span className="text-primary-foreground font-bold text-lg">{index + 1}</span>
               </motion.div>
 
-              <p className="text-foreground leading-relaxed text-lg group-hover:text-gradient transition-all duration-500 pt-2">
+              <p className="text-foreground leading-relaxed text-lg group-hover:text-gradient transition-all duration-500 pt-2 text-justify">
                 {objective}
               </p>
             </div>
