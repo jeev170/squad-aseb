@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Quote, Briefcase, GraduationCap, ArrowRight, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { Quote, GraduationCap, ArrowRight, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
 import MagneticButton from "@/components/MagneticButton";
@@ -236,8 +236,8 @@ const Alumni = () => {
                   <Card className={`overflow-hidden border-2 border-transparent hover:border-accent/30 transition-all duration-500 bg-card`}>
                     <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                       {/* Image Section */}
-                      <div className="md:w-2/5 relative">
-                        <div className="aspect-square md:aspect-auto md:h-full">
+                      <div className="md:w-1/3 relative flex-shrink-0">
+                        <div className="aspect-square">
                           <img 
                             src={person.image} 
                             alt={person.name}
@@ -257,15 +257,11 @@ const Alumni = () => {
                       </div>
                       
                       {/* Content Section */}
-                      <div className="md:w-3/5 p-6 md:p-10 flex flex-col justify-center">
+                      <div className="md:w-2/3 p-6 md:p-10 flex flex-col justify-center">
                         <div className="mb-4">
                           <h3 className="text-2xl md:text-3xl font-serif font-bold text-gradient mb-2">
                             {person.name}
                           </h3>
-                          <div className="flex items-center gap-2 text-accent">
-                            <Briefcase className="w-5 h-5" />
-                            <span className="font-medium text-lg">{person.current}</span>
-                          </div>
                         </div>
                         
                         <div className="relative">
