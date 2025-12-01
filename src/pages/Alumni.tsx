@@ -223,60 +223,77 @@ const Alumni = () => {
             transition={{ duration: 0.5 }}
             className="space-y-12 mb-16 min-h-[150vh]"
           >
-            {currentAlumni.map((person, index) => {
-              const isEven = index % 2 === 0;
+{(() => {
+  // Make a full list of 6 items by adding placeholders
+  const items = [...currentAlumni];
+  const missing = alumniPerPage - items.length;
+
+  for (let i = 0; i < missing; i++) {
+    items.push({ placeholder: true, id: `ph-${i}` });
+  }
+
+  return items.map((person, index) => {
+    const isEven = index % 2 === 0;
+    const isPlaceholder = person.placeholder;
+
+    return (
+      <motion.div
+        key={isPlaceholder ? person.id : currentPage * alumniPerPage + index}
+        initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+        className={isPlaceholder ? "opacity-0 pointer-events-none" : ""}
+      >
+        <Card className="overflow-hidden border-2 border-transparent bg-card">
+          <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}>
+            
+            {/* Image Section */}
+            <div className="md:w-1/3 relative flex-shrink-0">
+              <div className="aspect-square">
+                {isPlaceholder ? (
+                  <div className="w-full h-full bg-transparent" />
+                ) : (
+                  <img 
+                    src={person.image} 
+                    alt={person.name}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
               
-              return (
-                <motion.div
-                  key={currentPage * alumniPerPage + index}
-                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className={`overflow-hidden border-2 border-transparent hover:border-accent/30 transition-all duration-500 bg-card`}>
-                    <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                      {/* Image Section */}
-                      <div className="md:w-1/3 relative flex-shrink-0">
-                        <div className="aspect-square">
-                          <img 
-                            src={person.image} 
-                            alt={person.name}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        {/* Gradient Overlay */}
-                        <div className={`absolute inset-0 bg-gradient-to-${isEven ? 'r' : 'l'} from-transparent via-transparent to-card hidden md:block`} />
-                        <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:hidden" />
-                        
-                        {/* Batch Badge */}
-                        <div className="absolute top-4 left-4">
-                          <span className="px-4 py-2 bg-gradient-gold text-foreground font-bold text-sm rounded-full shadow-gold">
-                            {person.batch}
-                          </span>
-                        </div>
-                      </div>
-                      
-                      {/* Content Section */}
-                      <div className="md:w-2/3 p-6 md:p-10 flex flex-col justify-center">
-                        <div className="mb-4">
-                          <h3 className="text-2xl md:text-3xl font-serif font-bold text-gradient mb-2">
-                            {person.name}
-                          </h3>
-                        </div>
-                        
-                        <div className="relative">
-                          <Quote className="absolute -left-2 -top-4 w-10 h-10 text-accent/20" />
-                          <p className="text-muted-foreground text-base leading-relaxed pl-6 italic">
-                            "{person.testimonial}"
-                          </p>
-                          <Quote className="absolute right-0 bottom-0 w-10 h-10 text-accent/20 rotate-180" />
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              );
-            })}
+              {!isPlaceholder && (
+                <div className="absolute top-4 left-4">
+                  <span className="px-4 py-2 bg-gradient-gold text-foreground font-bold text-sm rounded-full shadow-gold">
+                    {person.batch}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Content Section */}
+            <div className="md:w-2/3 p-6 md:p-10 flex flex-col justify-center">
+              {!isPlaceholder && (
+                <>
+                  <h3 className="text-2xl md:text-3xl font-serif font-bold text-gradient mb-2">
+                    {person.name}
+                  </h3>
+
+                  <div className="relative">
+                    <Quote className="absolute -left-2 -top-4 w-10 h-10 text-accent/20" />
+                    <p className="text-muted-foreground text-base leading-relaxed pl-6 italic">
+                      "{person.testimonial}"
+                    </p>
+                    <Quote className="absolute right-0 bottom-0 w-10 h-10 text-accent/20 rotate-180" />
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </Card>
+      </motion.div>
+    );
+  });
+})()}
           </motion.div>
         </AnimatePresence>
 
