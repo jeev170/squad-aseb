@@ -200,7 +200,7 @@ const About = () => {
       Our Objectives
     </h2>
 
-    <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-justify">
+    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
       The guiding principles that drive every initiative
     </p>
   </motion.div>
@@ -229,7 +229,7 @@ const About = () => {
                 <span className="text-primary-foreground font-bold text-lg">{index + 1}</span>
               </motion.div>
 
-              <p className="text-foreground leading-relaxed text-lg group-hover:text-gradient transition-all duration-500 pt-2 text-justify">
+              <p className="text-foreground leading-relaxed text-lg group-hover:text-gradient transition-all duration-500 pt-2">
                 {objective}
               </p>
             </div>
