@@ -316,7 +316,7 @@ const Alumni = () => {
         </div>
 
         <p className="text-center text-muted-foreground text-sm mb-16">
-          Page {currentPage + 1} of {totalPages} • {alumni.length} Alumni
+          Page {currentPage + 1} of {totalPages}
         </p>
 
         {/* CTA Section */}
