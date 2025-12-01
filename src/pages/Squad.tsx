@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { useParams } from "react-router-dom";
-import { Crown, Shield, Wallet, Users, Instagram, Mail } from "lucide-react";
+import { Crown, Shield, Wallet, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
 
@@ -18,9 +18,7 @@ const Squad = () => {
       image: "/images/squad/president.jpg",
       description: "Leading The Squad with passion, purpose, and patriotism - fueling adventure that build courage, unity and pride.",
       icon: Crown,
-      color: "from-accent to-gold-dark",
-      email: "president@thesquad.com", // Update this email
-      instagram: "https://instagram.com/username" // Update this Instagram URL
+      color: "from-accent to-gold-dark"
     },
     {
       name: "Shreepriya P Soraba",
@@ -28,9 +26,7 @@ const Squad = () => {
       image: "/images/squad/vp-1.jpg",
       description: "Big on smiles, low on words. Here to help and never let anyone miss out on the fun!",
       icon: Shield,
-      color: "from-primary to-primary-dark",
-      email: "vp1@thesquad.com", // Update this email
-      instagram: "https://instagram.com/username" // Update this Instagram URL
+      color: "from-primary to-primary-dark"
     },
     {
       name: "K Haripriya",
@@ -38,9 +34,7 @@ const Squad = () => {
       image: "/images/squad/vp-2.jpg",
       description: "Built with grit and a sprinkle of sparkle. Always down to help, never quits till the job's done!",
       icon: Shield,
-      color: "from-burnt to-primary",
-      email: "vp2@thesquad.com", // Update this email
-      instagram: "https://instagram.com/username" // Update this Instagram URL
+      color: "from-burnt to-primary"
     },
     {
       name: "SJ Yatish",
@@ -48,9 +42,7 @@ const Squad = () => {
       image: "/images/squad/treasurer.jpg",
       description: "Driving the Squad's spirit with precision and keeping our finances always in pole position.",
       icon: Wallet,
-      color: "from-accent to-burnt",
-      email: "treasurer@thesquad.com", // Update this email
-      instagram: "https://instagram.com/username" // Update this Instagram URL
+      color: "from-accent to-burnt"
     }
   ];
 
@@ -127,27 +119,6 @@ const Squad = () => {
                         <member.icon className="h-7 w-7 text-primary-foreground" />
                       </motion.div>
                       
-                      {/* Social Links on Hover */}
-                      <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                        <motion.a
-                          href={member.instagram}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="w-10 h-10 rounded-full glassmorphism-dark flex items-center justify-center"
-                        >
-                          <Instagram className="w-5 h-5 text-primary-foreground" />
-                        </motion.a>
-                        <motion.a
-                          href={`mailto:${member.email}`}
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="w-10 h-10 rounded-full glassmorphism-dark flex items-center justify-center"
-                        >
-                          <Mail className="w-5 h-5 text-primary-foreground" />
-                        </motion.a>
-                      </div>
                     </div>
                     
                     {/* Content */}
