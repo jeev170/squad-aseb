@@ -58,112 +58,112 @@ const Alumni = () => {
     },
     {
       name: "Ram Sameer",
-      batch: "President(2019-20)",
+      batch: "President, 2019-20",
       current: "Position",
       image: "/images/alumni/alumni-7.jpg",
       testimonial: "Squad, the adventure club, was my first and most memorable experience at Amrita. It taught me discipline, teamwork, leadership, and resilience through treks, cadet training, and shared adventures. From my first trek to leading under female guidance, Squad gave me real-life lessons, lasting friendships, and unforgettable memories that shaped me."
     },
     {
       name: "Varun",
-      batch: "Secretary(2020-21)",
+      batch: "Secretary, 2020-21",
       current: "Position",
       image: "/images/alumni/alumni-8.jpg",
       testimonial: "Serving as secretary of Squad has been a rewarding journey filled with patriotism and adventure. It strengthened my confidence, communication, and discipline while allowing me to grow alongside inspiring peers. Being part of such a dedicated and passionate community has been an honor that shaped my values and enriched my college journey."
     },
     {
       name: "Sai Krishna",
-      batch: "Joint secretary(2020-21)",
+      batch: "Joint secretary, 2020-21",
       current: "Position",
       image: "/images/alumni/alumni-9.jpg",
       testimonial: "Holding the position of joint secretary in Squad became an enriching chapter in my journey, shaping both my growth and perspective. It deepened my leadership, confidence, and decision-making skills while reinforcing the importance of teamwork and discipline. Being among passionate individuals taught me to lead with integrity and purpose, inspiring me even today."
     },
     {
       name: "Harshitha",
-      batch: "Joint secretary(2020-21)",
+      batch: "Joint secretary, 2020-21",
       current: "Position",
       image: "/images/alumni/alumni-10.jpg",
       testimonial: "Joining Squad was an easy choice once I learned its purpose. What began as a club soon became a family built on teamwork and perseverance. Leading as joint secretary during an online tenure taught resilience and adaptability. Squad gave me invaluable lessons, lasting memories, and immense pride in belonging."
     },
     {
       name: "Teja Sree",
-      batch: "President(2021-22)",
+      batch: "President, 2021-22",
       current: "Position",
       image: "/images/alumni/alumni-11.jpg",
       testimonial: "Squad will always hold a special place in my heart. It was more than a club, it was a journey of self-discovery. Through every challenge and event, I learned teamwork, leadership, discipline, and patriotism. The experiences, lessons, and friendships I gained shaped my college life and will stay with me forever."
     },
     {
       name: "Tarakaram",
-      batch: "Joint Secretary(2021-22)",
+      batch: "Joint Secretary, 2021-22",
       current: "Position",
       image: "/images/alumni/alumni-12.jpg",
       testimonial: "Squad has been one of the best experiences of my college life. It taught me discipline, confidence, teamwork, and determination. The adventures and events deepened my love for the nation and strengthened my sense of responsibility. I am grateful to my mentors and encourage juniors to carry forward its spirit."
     },
     {
       name: "Deepthi",
-      batch: "President(2022-23)",
+      batch: "President, 2022-23",
       current: "Position",
       image: "/images/alumni/alumni-13.jpg",
       testimonial: "Squad gave me a memorable and enriching journey, creating a family-like space that built teamwork, leadership, and pride through treks and patriotic events. Under the guidance of Dr. Shashi Kumar M E, we learned with joy and purpose. I hope juniors continue to carry forward Squad’s energy, adventure, and unforgettable spirit."
     },
     {
       name: "Samuel",
-      batch: "President(2023-24)",
+      batch: "President, 2023-24",
       current: "Position",
       image: "/images/alumni/alumni-14.jpg",
       testimonial: "As president of Squad, I have witnessed its incredible impact on every member. Built on adventure and patriotism, the club fosters resilience, teamwork, and national pride. From treks to parades, each experience shapes us into disciplined and united individuals. Squad remains a family that continues to inspire future leaders."
     },
     {
       name: "Samhita",
-      batch: "Vice President(2023-24)",
+      batch: "Vice President, 2023-24",
       current: "Position",
       image: "/images/alumni/alumni-15.jpg",
       testimonial: "Squad has been a life-changing experience that shaped my character and values. It nurtured my leadership, teamwork, and sense of patriotism while connecting me to a meaningful purpose. The club became a family that inspired integrity, service, and pride, leaving me with lasting memories and lessons for life."
     },
     {
       name: "Akanksha",
-      batch: "Vice President(2023-24)",
+      batch: "Vice President, 2023-24",
       current: "Position",
       image: "/images/alumni/alumni-16.jpg",
       testimonial: "Serving as the Vice President of Squad has been a truly transformative journey. Through adventurous treks and patriotic initiatives, I developed leadership, teamwork, and discipline. The experiences, challenges, and friendships shaped me deeply, leaving lasting memories. I’ll always be grateful to Squad for inspiring growth, pride, and lifelong connections."
     },
     {
       name: "Abheetha",
-      batch: "President(2024-25)",
+      batch: "President, 2024-25",
       current: "Position",
       image: "/images/alumni/alumni-17.jpg",
       testimonial: "Leading Squad has been one of the most beautiful chapters of my college life. From treks to parades, every moment was filled with pride and joy. I found a family in my teammates and a guiding mentor who shaped us. Squad will always remain a cherished part of me."
     },
     {
       name: "Saran",
-      batch: "Vice President(2024-25)",
+      batch: "Vice President, 2024-25",
       current: "Position",
       image: "/images/alumni/alumni-18.jpg",
       testimonial: "My time in Squad was a blend of adventure, laughter, and unforgettable chaos. From treks to parades, every moment built resilience and pride. As vice president, I learned to lead with spirit and unity. Squad gave me confidence, lasting friendships, and memories that will always stay close to my heart."
     },
     {
       name: "Tapan",
-      batch: "Vice President(2024-25)",
+      batch: "Vice President, 2024-25",
       current: "Position",
       image: "/images/alumni/alumni-19.jpg",
       testimonial: "My time in The Squad stands out as one of the best experiences of my college life. Treks, leadership roles, and countless moments of learning and laughter created unforgettable memories. The spirit of teamwork, the vibrant energy, and the friendships I made will always hold a special place in my heart."
     },
     {
       name: "Pranav Murthy",
-      batch: "Treasurer(2024-25)",
+      batch: "Treasurer, 2024-25",
       current: "Position",
       image: "/images/alumni/alumni-20.jpg",
       testimonial: "Being an office bearer of Squad was one of the most impactful parts of my B.Tech journey. It taught me patience, teamwork, and true leadership through challenges and shared experiences. From planning to execution, every moment shaped my confidence and perspective, making my college life meaningful and unforgettable."
     },
     {
       name: "Meghna",
-      batch: "Member(2022-26)",
+      batch: "Member, 2022-26",
       current: "Position",
       image: "/images/alumni/alumni-21.jpg",
       testimonial: "Since childhood, I’ve loved adventures and treks. Joining Amrita’s adventure and patriotism club in my first semester felt perfect. Becoming an executive and later Squad Commander deepened my bond with the club. Even after my term, I kept volunteering. The Squad gave me unforgettable friendships, memories, and reasons to cherish college life."
     },
     {
       name: "Swetha",
-      batch: "Member(2022-26)",
+      batch: "Member, 2022-26",
       current: "Position",
       image: "/images/alumni/alumni-22.jpg",
       testimonial: "The Squad Club became one of the most memorable parts of my college experience. Whether it was treks, parades, or organizing the Treasure Hunt, each moment was special. It taught me teamwork, discipline, and pride, shaping me into a more confident and determined person."
