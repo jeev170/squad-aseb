@@ -19,13 +19,13 @@ const Gallery = () => {
     (currentPage + 1) * imagesPerPage
   );
 
-  // Auto-rotate pages every 5 seconds
+  // Auto-rotate pages every 15 seconds
   useEffect(() => {
     if (selectedImage !== null) return;
     
     const interval = setInterval(() => {
       setCurrentPage((prev) => (prev + 1) % totalPages);
-    }, 5000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [totalPages, selectedImage]);
