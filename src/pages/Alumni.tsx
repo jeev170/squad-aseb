@@ -221,7 +221,7 @@ const Alumni = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="space-y-12 mb-16"
+            className="space-y-12 mb-16 min-h-[150vh]"
           >
             {currentAlumni.map((person, index) => {
               const isEven = index % 2 === 0;
