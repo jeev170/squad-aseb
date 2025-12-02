@@ -44,7 +44,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-16 px-4">
+    <div className="min-h-screen bg-background pt-20 md:pt-24 pb-12 md:pb-16 px-3 sm:px-4">
       <div className="container mx-auto max-w-7xl">
         {/* Hero Header */}
         <motion.div 
@@ -62,7 +62,7 @@ const Gallery = () => {
             <Camera className="w-4 h-4 inline mr-2" />
             Visual Stories
           </motion.span>
-          <h1 className="text-hero font-serif font-bold text-gradient mb-6">Squad Gallery</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-6">Squad Gallery</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Capturing moments of adventure, patriotism, and camaraderie
           </p>

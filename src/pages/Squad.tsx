@@ -47,7 +47,7 @@ const Squad = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-16 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-background pt-20 md:pt-24 pb-12 md:pb-16 px-3 sm:px-4 relative overflow-hidden">
       <div className="absolute inset-0 pattern-dots opacity-20" />
       <ParticleBackground />
       
@@ -68,19 +68,19 @@ const Squad = () => {
             <Users className="w-4 h-4 inline mr-2" />
             Leadership Team
           </motion.span>
-          <h1 className="text-hero font-serif font-bold text-gradient mb-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-2 px-2">
             The Squad {displayYear}-{String(parseInt(displayYear) + 1).slice(-2)}
           </h1>
-          <p className="text-2xl font-serif text-accent font-semibold mb-4">
+          <p className="text-lg sm:text-xl md:text-2xl font-serif text-accent font-semibold mb-4">
             Patriotic & Adventure Club
           </p>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-2">
             {isCurrentYear ? "Meet our current leadership team" : "Information to be updated soon"}
           </p>
         </motion.div>
 
         {isCurrentYear ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {currentTeam.map((member, index) => (
               <motion.div
                 key={index}
@@ -144,11 +144,11 @@ const Squad = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <Card className="p-16 md:p-24 text-center glassmorphism border-2 border-accent/20 relative overflow-hidden">
+            <Card className="p-8 sm:p-12 md:p-16 lg:p-24 text-center glassmorphism border-2 border-accent/20 relative overflow-hidden">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute top-0 right-0 w-80 h-80 bg-accent/10 rounded-full blur-[100px]"
+                className="absolute top-0 right-0 w-40 md:w-60 lg:w-80 h-40 md:h-60 lg:h-80 bg-accent/10 rounded-full blur-[60px] md:blur-[80px] lg:blur-[100px]"
               />
               <div className="relative z-10">
                 <Users className="w-20 h-20 text-accent mx-auto mb-8" />

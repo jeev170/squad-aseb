@@ -26,7 +26,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-16 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-background pt-20 md:pt-24 pb-12 md:pb-16 px-3 sm:px-4 relative overflow-hidden">
       <ParticleBackground />
       <div className="absolute inset-0 pattern-grid opacity-20" />
       
@@ -49,7 +49,7 @@ const About = () => {
               <Heart className="w-4 h-4 inline mr-2" />
               Who We Are
             </motion.span>
-            <h1 className="text-hero font-serif font-bold text-gradient mb-6">About Us</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-6">About Us</h1>
           </div>
           
           <motion.div

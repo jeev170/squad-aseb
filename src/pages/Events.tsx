@@ -86,7 +86,7 @@ const Events = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-16 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-background pt-20 md:pt-24 pb-12 md:pb-16 px-3 sm:px-4 relative overflow-hidden">
       <div className="absolute inset-0 pattern-dots opacity-20" />
       <ParticleBackground />
       
@@ -107,7 +107,7 @@ const Events = () => {
             <Calendar className="w-4 h-4 inline mr-2" />
             Our Activities
           </motion.span>
-          <h1 className="text-hero font-serif font-bold text-gradient mb-6">Our Events</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-6">Our Events</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Join us in celebrating patriotism and adventure through our diverse range of activities
           </p>
@@ -204,19 +204,19 @@ const Events = () => {
           transition={{ duration: 0.8 }}
           className="mt-24"
         >
-          <Card className="relative p-12 md:p-16 bg-gradient-patriotic text-primary-foreground border-0 overflow-hidden">
+          <Card className="relative p-6 sm:p-8 md:p-12 lg:p-16 bg-gradient-patriotic text-primary-foreground border-0 overflow-hidden">
             <div className="absolute inset-0 pattern-diagonal opacity-10" />
             
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-32 -right-32 w-96 h-96 bg-accent/20 rounded-full blur-[100px]"
+              className="absolute -top-16 -right-16 md:-top-32 md:-right-32 w-48 md:w-72 lg:w-96 h-48 md:h-72 lg:h-96 bg-accent/20 rounded-full blur-[50px] md:blur-[80px] lg:blur-[100px]"
             />
             
             <div className="relative z-10 text-center max-w-2xl mx-auto">
-              <Sparkles className="w-12 h-12 text-accent mx-auto mb-6" />
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">Want to Participate?</h2>
-              <p className="text-xl mb-10 text-primary-foreground/80">
+              <Sparkles className="w-8 h-8 md:w-12 md:h-12 text-accent mx-auto mb-4 md:mb-6" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 md:mb-6 px-2">Want to Participate?</h2>
+              <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-10 text-primary-foreground/80 px-2">
                 Join us in our upcoming events and be part of the adventure!
               </p>
               <MagneticButton>
