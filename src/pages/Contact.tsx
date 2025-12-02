@@ -80,7 +80,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-16 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-background pt-20 md:pt-24 pb-12 md:pb-16 px-3 sm:px-4 relative overflow-hidden">
       <ParticleBackground />
       <div className="absolute inset-0 pattern-grid opacity-20" />
 
@@ -101,7 +101,7 @@ const Contact = () => {
             <MessageCircle className="w-4 h-4 inline mr-2" />
             Get in Touch
           </motion.span>
-          <h1 className="text-hero font-serif font-bold text-gradient mb-4">Connect With Us</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-4">Connect With Us</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             We'd love to hear from you - reach out and let's start a conversation
           </p>

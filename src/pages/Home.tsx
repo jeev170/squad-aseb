@@ -83,7 +83,7 @@ const Home = () => {
             y: [0, -30, 0]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 right-20 w-[500px] h-[500px] bg-primary/30 rounded-full blur-[150px]"
+          className="absolute top-20 right-0 md:right-20 w-[250px] md:w-[400px] lg:w-[500px] h-[250px] md:h-[400px] lg:h-[500px] bg-primary/30 rounded-full blur-[100px] md:blur-[150px]"
         />
         <motion.div
           animate={{ 
@@ -93,11 +93,11 @@ const Home = () => {
             y: [0, 50, 0]
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-          className="absolute bottom-20 left-20 w-[600px] h-[600px] bg-accent/25 rounded-full blur-[150px]"
+          className="absolute bottom-20 left-0 md:left-20 w-[300px] md:w-[450px] lg:w-[600px] h-[300px] md:h-[450px] lg:h-[600px] bg-accent/25 rounded-full blur-[100px] md:blur-[150px]"
         />
         
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-4 max-w-7xl mx-auto pt-20">
+        <div className="relative z-10 text-center px-2 sm:px-4 max-w-7xl mx-auto pt-16 md:pt-20">
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
@@ -131,9 +131,9 @@ const Home = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="mb-8"
+              className="mb-6 md:mb-8"
             >
-              <p className="text-3xl md:text-5xl font-serif text-primary-foreground/95 italic">
+              <p className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-serif text-primary-foreground/95 italic">
                 Where{" "}
                 <span className="text-gold-gradient font-bold not-italic">Patriotism</span>
                 {" "}Meets{" "}
@@ -142,7 +142,7 @@ const Home = () => {
             </motion.div>
             
             <motion.p 
-              className="text-xl md:text-2xl text-primary-foreground/80 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-primary-foreground/80 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed px-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.3 }}
@@ -152,25 +152,25 @@ const Home = () => {
             
             {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-wrap gap-6 justify-center"
+              className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center px-2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.5 }}
             >
               <MagneticButton>
-                <Button asChild size="lg" className="bg-gradient-gold text-foreground font-bold text-lg px-10 py-7 h-auto shadow-gold hover:shadow-neon transition-all duration-500 group">
-                  <Link to="/about" className="flex items-center gap-3">
-                    <Compass className="w-5 h-5 group-hover:rotate-45 transition-transform" />
-                    Discover Our Mission
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Button asChild size="lg" className="bg-gradient-gold text-foreground font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 h-auto shadow-gold hover:shadow-neon transition-all duration-500 group w-full sm:w-auto">
+                  <Link to="/about" className="flex items-center justify-center gap-2 sm:gap-3">
+                    <Compass className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-45 transition-transform" />
+                    <span className="whitespace-nowrap">Discover Our Mission</span>
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
               </MagneticButton>
               
               <MagneticButton>
-                <Button asChild size="lg" variant="outline" className="glassmorphism-dark border-2 border-primary-foreground/30 text-primary-foreground font-bold text-lg px-10 py-7 h-auto hover:border-accent hover:bg-accent/10 transition-all duration-500 group">
-                  <Link to="/events" className="flex items-center gap-3">
-                    <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Button asChild size="lg" variant="outline" className="glassmorphism-dark border-2 border-primary-foreground/30 text-primary-foreground font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 h-auto hover:border-accent hover:bg-accent/10 transition-all duration-500 group w-full sm:w-auto">
+                  <Link to="/events" className="flex items-center justify-center gap-2 sm:gap-3">
+                    <Play className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
                     View Events
                   </Link>
                 </Button>
@@ -182,11 +182,11 @@ const Home = () => {
       </section>
 
       {/* Impact Stats Section */}
-      <section className="py-24 px-4 bg-gradient-patriotic relative overflow-hidden">
+      <section className="py-12 md:py-20 lg:py-24 px-4 bg-gradient-patriotic relative overflow-hidden">
         <div className="absolute inset-0 pattern-diagonal opacity-10" />
         
         <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
             {[
               { value: 300, suffix: "+", label: "Members", icon: Users },
               { value: 50, suffix: "+", label: "Events Organized", icon: Calendar },
@@ -203,14 +203,14 @@ const Home = () => {
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors"
+                  className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 rounded-xl md:rounded-2xl bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors"
                 >
-                  <stat.icon className="w-8 h-8 text-accent" />
+                  <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-accent" />
                 </motion.div>
-                <div className="text-5xl md:text-6xl font-serif font-bold text-primary-foreground mb-2">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mb-1 md:mb-2">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <p className="text-primary-foreground/80 font-medium tracking-wide">{stat.label}</p>
+                <p className="text-primary-foreground/80 font-medium tracking-wide text-xs sm:text-sm md:text-base">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -218,7 +218,7 @@ const Home = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-32 px-4 bg-background relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 px-4 bg-background relative overflow-hidden">
         <div className="absolute inset-0 pattern-grid opacity-30" />
         
         <div className="container mx-auto relative z-10">
@@ -282,7 +282,7 @@ const Home = () => {
       <SectionDivider variant="flag" />
 
       {/* Timeline Section */}
-      <section className="py-32 px-4 bg-muted/30 relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 px-4 bg-muted/30 relative overflow-hidden">
         <div className="absolute inset-0 pattern-dots opacity-20" />
         
         <div className="container mx-auto relative z-10">
@@ -312,17 +312,17 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-4 bg-gradient-patriotic relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 px-4 bg-gradient-patriotic relative overflow-hidden">
         <div className="absolute inset-0 pattern-diagonal opacity-10" />
         
         {/* Animated orbs */}
         <motion.div
           animate={{ scale: [1, 1.3, 1], rotate: [0, 180, 360] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/10 rounded-full blur-[200px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] lg:w-[800px] h-[300px] md:h-[500px] lg:h-[800px] bg-accent/10 rounded-full blur-[100px] md:blur-[150px] lg:blur-[200px]"
         />
 
-        <div className="container mx-auto text-center relative z-10 max-w-4xl">
+        <div className="container mx-auto text-center relative z-10 max-w-4xl px-2">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -332,24 +332,24 @@ const Home = () => {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="inline-block mb-8"
+              className="inline-block mb-6 md:mb-8"
             >
-              <Heart className="w-16 h-16 text-accent mx-auto" />
+              <Heart className="w-10 h-10 md:w-16 md:h-16 text-accent mx-auto" />
             </motion.div>
             
-            <h2 className="text-hero font-serif font-bold text-primary-foreground mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-foreground mb-6 md:mb-8 px-2">
               Ready to Join the Adventure?
             </h2>
-            <p className="text-xl text-primary-foreground/80 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
               Be part of a community that celebrates patriotism through adventure and builds bonds that last a lifetime.
             </p>
             
             <MagneticButton>
-              <Button asChild size="lg" className="bg-gradient-gold text-foreground font-bold text-xl px-14 py-8 h-auto shadow-gold hover:shadow-neon transition-all duration-500">
-                <Link to="/contact" className="flex items-center gap-3">
-                  <Sparkles className="w-6 h-6" />
+              <Button asChild size="lg" className="bg-gradient-gold text-foreground font-bold text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-14 py-5 sm:py-6 md:py-8 h-auto shadow-gold hover:shadow-neon transition-all duration-500">
+                <Link to="/contact" className="flex items-center gap-2 sm:gap-3">
+                  <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
                   Join The Squad
-                  <ArrowRight className="w-6 h-6" />
+                  <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
                 </Link>
               </Button>
             </MagneticButton>

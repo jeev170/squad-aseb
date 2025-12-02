@@ -7,7 +7,7 @@ import ParticleBackground from "@/components/ParticleBackground";
 
 const Mentor = () => {
   return (
-    <div className="min-h-screen bg-background pt-24 pb-16 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-background pt-20 md:pt-24 pb-12 md:pb-16 px-3 sm:px-4 relative overflow-hidden">
       <ParticleBackground />
       <div className="absolute inset-0 pattern-dots opacity-20" />
       
@@ -42,14 +42,14 @@ const Mentor = () => {
         >
           <Card className="overflow-hidden border-2 hover:border-accent/30 transition-all duration-500 bg-card">
             {/* Hero Section */}
-            <div className="relative h-72 md:h-96 bg-gradient-patriotic overflow-hidden">
+            <div className="relative h-64 sm:h-72 md:h-96 bg-gradient-patriotic overflow-hidden">
               <div className="absolute inset-0 pattern-diagonal opacity-10" />
               
               {/* Animated orbs */}
               <motion.div
                 animate={{ scale: [1, 1.3, 1], x: [0, 30, 0] }}
                 transition={{ duration: 15, repeat: Infinity }}
-                className="absolute top-10 right-10 w-48 h-48 bg-accent/20 rounded-full blur-[80px]"
+                className="absolute top-10 right-0 md:right-10 w-32 md:w-48 h-32 md:h-48 bg-accent/20 rounded-full blur-[50px] md:blur-[80px]"
               />
               
               {/* Profile Image */}
@@ -60,7 +60,7 @@ const Mentor = () => {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="relative"
                 >
-                  <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-accent shadow-gold">
+                  <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-accent shadow-gold">
                     <img 
                       src="/images/mentor.jpg" 
                       alt="Dr. Shashi Kumar ME"
@@ -71,7 +71,7 @@ const Mentor = () => {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.8, type: "spring" }}
-                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-gold text-foreground font-bold rounded-full shadow-gold whitespace-nowrap"
+                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-4 sm:px-6 py-1.5 sm:py-2 bg-gradient-gold text-foreground font-bold text-sm sm:text-base rounded-full shadow-gold whitespace-nowrap"
                   >
                     Faculty Mentor
                   </motion.div>
@@ -80,7 +80,7 @@ const Mentor = () => {
             </div>
 
             {/* Content Section */}
-            <div className="p-8 md:p-12 space-y-10">
+            <div className="p-4 sm:p-6 md:p-8 lg:p-12 space-y-6 md:space-y-10">
               {/* Name & Title */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -88,10 +88,10 @@ const Mentor = () => {
                 transition={{ delay: 0.6 }}
                 className="text-center"
               >
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient mb-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-gradient mb-2 px-2">
                   Dr. Shashi Kumar ME
                 </h2>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
                   Department of Mechanical Engineering
                 </p>
               </motion.div>
