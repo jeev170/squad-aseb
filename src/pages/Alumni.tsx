@@ -168,7 +168,11 @@ const Alumni = () => {
       image: "/images/alumni/alumni-22.jpg",
       testimonial: "The Squad Club became one of the most memorable parts of my college experience. Whether it was treks, parades, or organizing the Treasure Hunt, each moment was special. It taught me teamwork, discipline, and pride, shaping me into a more confident and determined person."
     }
-  ];
+  ] as const;
+
+  type AlumniPerson = typeof alumni[number];
+  type PlaceholderPerson = { placeholder: true; id: string };
+  type AlumniItem = AlumniPerson | PlaceholderPerson;
 
   const totalPages = Math.ceil(alumni.length / alumniPerPage);
   const currentAlumni = alumni.slice(
@@ -221,11 +225,11 @@ const Alumni = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="space-y-12 mb-16 min-h-[150vh]"
+            className="space-y-8 md:space-y-12 mb-16"
           >
 {(() => {
   // Make a full list of 6 items by adding placeholders
-  const items = [...currentAlumni];
+  const items: AlumniItem[] = [...currentAlumni];
   const missing = alumniPerPage - items.length;
 
   for (let i = 0; i < missing; i++) {
@@ -234,7 +238,7 @@ const Alumni = () => {
 
   return items.map((person, index) => {
     const isEven = index % 2 === 0;
-    const isPlaceholder = person.placeholder;
+    const isPlaceholder = 'placeholder' in person && person.placeholder;
 
     return (
       <motion.div
@@ -242,52 +246,52 @@ const Alumni = () => {
         initial={{ opacity: 0, x: isEven ? -50 : 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className={isPlaceholder ? "opacity-0 pointer-events-none" : ""}
+        className={isPlaceholder ? "invisible" : ""}
       >
-        <Card className="overflow-hidden border-2 border-transparent bg-card">
-          <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}>
+        <Card className="overflow-hidden border-2 border-transparent bg-card h-full">
+          <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} h-full`}>
             
             {/* Image Section */}
             <div className="md:w-1/3 relative flex-shrink-0">
-              <div className="aspect-square">
+              <div className="aspect-square w-full">
                 {isPlaceholder ? (
                   <div className="w-full h-full bg-transparent" />
-                ) : (
-                  <img 
-                    src={person.image} 
-                    alt={person.name}
-                    className="w-full h-full object-cover"
-                  />
-                )}
+                 ) : (
+                   <img 
+                     src={'image' in person ? person.image : ''} 
+                     alt={'name' in person ? person.name : ''}
+                     className="w-full h-full object-cover"
+                   />
+                 )}
               </div>
               
-              {!isPlaceholder && (
-                <div className="absolute top-4 left-4">
-                  <span className="px-4 py-2 bg-gradient-gold text-foreground font-bold text-sm rounded-full shadow-gold">
-                    {person.batch}
-                  </span>
-                </div>
-              )}
+               {!isPlaceholder && 'batch' in person && (
+                 <div className="absolute top-4 left-4">
+                   <span className="px-3 py-1.5 md:px-4 md:py-2 bg-gradient-gold text-foreground font-bold text-xs md:text-sm rounded-full shadow-gold">
+                     {person.batch}
+                   </span>
+                 </div>
+               )}
             </div>
 
-            {/* Content Section */}
-            <div className="md:w-2/3 p-6 md:p-10 flex flex-col justify-center">
-              {!isPlaceholder && (
-                <>
-                  <h3 className="text-2xl md:text-3xl font-serif font-bold text-gradient mb-2">
-                    {person.name}
-                  </h3>
+             {/* Content Section */}
+             <div className="md:w-2/3 p-4 md:p-10 flex flex-col justify-center">
+               {!isPlaceholder && 'name' in person && (
+                 <>
+                   <h3 className="text-xl md:text-3xl font-serif font-bold text-gradient mb-4 md:mb-6">
+                     {person.name}
+                   </h3>
 
-                  <div className="relative">
-                    <Quote className="absolute -left-2 -top-4 w-10 h-10 text-accent/20" />
-                    <p className="text-muted-foreground text-base leading-relaxed pl-6 italic">
-                      "{person.testimonial}"
-                    </p>
-                    <Quote className="absolute right-0 bottom-0 w-10 h-10 text-accent/20 rotate-180" />
-                  </div>
-                </>
-              )}
-            </div>
+                   <div className="relative">
+                     <Quote className="absolute -left-1 md:-left-2 -top-3 md:-top-4 w-6 h-6 md:w-10 md:h-10 text-accent/20" />
+                     <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-4 md:pl-6 italic">
+                       "{person.testimonial}"
+                     </p>
+                     <Quote className="absolute right-0 bottom-0 w-6 h-6 md:w-10 md:h-10 text-accent/20 rotate-180" />
+                   </div>
+                 </>
+               )}
+             </div>
           </div>
         </Card>
       </motion.div>
