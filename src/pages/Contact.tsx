@@ -90,24 +90,24 @@ const Contact = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
           <motion.span
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", delay: 0.2 }}
-            className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm tracking-premium uppercase mb-6"
+            className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-accent/10 text-accent font-medium text-xs md:text-sm tracking-premium uppercase mb-4 md:mb-6"
           >
-            <MessageCircle className="w-4 h-4 inline mr-2" />
+            <MessageCircle className="w-3 h-3 md:w-4 md:h-4 inline mr-1.5 md:mr-2" />
             Get in Touch
           </motion.span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-4">Connect With Us</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-3 md:mb-4">Connect With Us</h1>
+          <p className="text-sm sm:text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
             We'd love to hear from you - reach out and let's start a conversation
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-8">
+        <div className="grid lg:grid-cols-5 gap-4 md:gap-8">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -115,43 +115,43 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-3"
           >
-            <Card className="p-8 md:p-10 glassmorphism border-2 hover:border-accent/30 transition-all duration-500">
-              <h2 className="text-2xl font-serif font-bold text-foreground mb-8 flex items-center gap-3">
-                <Send className="w-6 h-6 text-accent" />
+            <Card className="p-4 sm:p-6 md:p-10 glassmorphism border-2 hover:border-accent/30 transition-all duration-500">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-foreground mb-4 md:mb-8 flex items-center gap-2 md:gap-3">
+                <Send className="w-5 h-5 md:w-6 md:h-6 text-accent" />
                 Send us a Message
               </h2>
 
-              <form id="contactForm" className="space-y-6">
+              <form id="contactForm" className="space-y-4 md:space-y-6">
                 {/* FormSubmit hidden fields */}
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name <span className="text-accent">*</span></Label>
-                    <Input id="name" name="name" required placeholder="Your full name" />
+                <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
+                  <div className="space-y-1.5 md:space-y-2">
+                    <Label htmlFor="name" className="text-sm md:text-base">Name <span className="text-accent">*</span></Label>
+                    <Input id="name" name="name" required placeholder="Your full name" className="text-sm md:text-base" />
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email <span className="text-accent">*</span></Label>
-                    <Input id="email" name="email" type="email" required placeholder="your.email@example.com" />
+                  <div className="space-y-1.5 md:space-y-2">
+                    <Label htmlFor="email" className="text-sm md:text-base">Email <span className="text-accent">*</span></Label>
+                    <Input id="email" name="email" type="email" required placeholder="your.email@example.com" className="text-sm md:text-base" />
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" />
+                <div className="space-y-1.5 md:space-y-2">
+                  <Label htmlFor="phone" className="text-sm md:text-base">Phone Number</Label>
+                  <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" className="text-sm md:text-base" />
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message <span className="text-accent">*</span></Label>
-                  <Textarea id="message" name="message" required placeholder="Tell us what's on your mind..." />
+                <div className="space-y-1.5 md:space-y-2">
+                  <Label htmlFor="message" className="text-sm md:text-base">Message <span className="text-accent">*</span></Label>
+                  <Textarea id="message" name="message" required placeholder="Tell us what's on your mind..." className="text-sm md:text-base min-h-[100px] md:min-h-[120px]" />
                 </div>
 
                 <MagneticButton className="w-full">
-                  <Button className="w-full h-14 bg-gradient-gold text-foreground font-bold text-lg shadow-gold hover:shadow-neon transition-all duration-500">
+                  <Button className="w-full h-11 md:h-14 bg-gradient-gold text-foreground font-bold text-sm md:text-lg shadow-gold hover:shadow-neon transition-all duration-500">
                     <span className="flex items-center gap-2">
-                      <Send className="w-5 h-5" />
+                      <Send className="w-4 h-4 md:w-5 md:h-5" />
                       Send Message
                     </span>
                   </Button>
@@ -165,7 +165,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="lg:col-span-2 space-y-6"
+            className="lg:col-span-2 space-y-4 md:space-y-6"
           >
             {contactInfo.map((info, index) => (
               <motion.div
@@ -181,22 +181,21 @@ const Contact = () => {
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="p-6 glassmorphism border-2 hover:border-accent/30 group">
-                    <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-gold flex items-center justify-center shadow-gold group-hover:shadow-neon transition-shadow">
-                        <info.icon className="h-6 w-6 text-foreground" />
+                  <Card className="p-4 md:p-6 glassmorphism border-2 hover:border-accent/30 group">
+                    <div className="flex items-start gap-3 md:gap-4">
+                      <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-gold flex items-center justify-center shadow-gold group-hover:shadow-neon transition-shadow flex-shrink-0">
+                        <info.icon className="h-5 w-5 md:h-6 md:w-6 text-foreground" />
                       </div>
-                      <div>
-                        <h3 className="font-serif font-bold text-foreground text-lg mb-1">{info.title}</h3>
-                        <p className="text-accent font-medium mb-1">{info.value}</p>
-                        <p className="text-muted-foreground text-sm">{info.description}</p>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="font-serif font-bold text-foreground text-base md:text-lg mb-0.5 md:mb-1">{info.title}</h3>
+                        <p className="text-accent font-medium mb-0.5 md:mb-1 text-sm md:text-base truncate">{info.value}</p>
+                        <p className="text-muted-foreground text-xs md:text-sm">{info.description}</p>
                       </div>
                     </div>
                   </Card>
                 </motion.a>
               </motion.div>
             ))}
-
             {/* Map */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -204,7 +203,7 @@ const Contact = () => {
               transition={{ delay: 0.7 }}
             >
               <Card className="overflow-hidden border-2 hover:border-accent/30">
-                <div className="aspect-video">
+                <div className="aspect-[4/3] md:aspect-video">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.695348473493!2d77.67688647520547!3d12.884031087426566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13e06c59fead%3A0x73f6f92c0ab62b97!2sAmrita%20Vishwa%20Vidyapeetham%2C%20Bengaluru%20Campus!5e0!3m2!1sen!2sin!4v1707042812345"
                     width="100%"
