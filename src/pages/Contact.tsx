@@ -26,10 +26,9 @@ const Contact = () => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
 
-      const response = await fetch("https://formsubmit.co/ajax/thesquadclub.aseb@gmail.com", {
+      const response = await fetch("https://formsubmit.co/thesquadclub.aseb@gmail.com", {
         method: "POST",
         body: formData,
-        headers: { Accept: "application/json" },
         signal: controller.signal,
       });
 
