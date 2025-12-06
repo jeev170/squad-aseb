@@ -20,22 +20,19 @@ const Contact = () => {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    formData.set("_subject", "New Squad Contact Message - " + Date.now());
+
+    // REQUIRED BY WEB3FORMS
+    formData.append("access_key", "cc78f2d6-bce2-4d99-a62e-6b1837507ba7");
 
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
-
-      const response = await fetch("https://formsubmit.co/ajax/thesquadclub.aseb@gmail.com", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData,
-        headers: { "Accept": "application/json" },
-        signal: controller.signal,
+        body: formData
       });
 
-      clearTimeout(timeoutId);
+      const result = await response.json();
 
-      if (response.ok) {
+      if (result.success) {
         toast({
           title: "Message Sent!",
           description: "Thank you for reaching out. We'll get back to you soon.",
@@ -44,14 +41,14 @@ const Contact = () => {
       } else {
         toast({
           title: "Error",
-          description: "Failed to send message. Please try again.",
+          description: "Unable to send your message. Please try again.",
           variant: "destructive",
         });
       }
     } catch (error) {
       toast({
         title: "Network Error",
-        description: "Something went wrong. Please try again.",
+        description: "Something went wrong. Please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -89,6 +86,7 @@ const Contact = () => {
       <div className="absolute inset-0 pattern-grid opacity-20" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -105,13 +103,18 @@ const Contact = () => {
             <MessageCircle className="w-3 h-3 md:w-4 md:h-4 inline mr-1.5 md:mr-2" />
             Get in Touch
           </motion.span>
-          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-3 md:mb-4">Connect With Us</h1>
+
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-3 md:mb-4">
+            Connect With Us
+          </h1>
           <p className="text-sm sm:text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
-            We'd love to hear from you - reach out and let's start a conversation
+            We'd love to hear from you — reach out and let's start a conversation.
           </p>
         </motion.div>
 
+        {/* FORM + INFO GRID */}
         <div className="grid lg:grid-cols-5 gap-4 md:gap-8">
+
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -120,47 +123,48 @@ const Contact = () => {
             className="lg:col-span-3"
           >
             <Card className="p-4 sm:p-6 md:p-10 glassmorphism border-2 hover:border-accent/30 transition-all duration-500">
+
               <h2 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-foreground mb-4 md:mb-8 flex items-center gap-2 md:gap-3">
                 <Send className="w-5 h-5 md:w-6 md:h-6 text-accent" />
-                Send us a Message
+                Send Us a Message
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-                {/* FormSubmit hidden fields */}
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://squad-aseb.lovable.app/contact" />
-                <input type="hidden" name="_template" value="table" />
 
+                {/* Name + Email */}
                 <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
-                  <div className="space-y-1.5 md:space-y-2">
-                    <Label htmlFor="name" className="text-sm md:text-base">Name <span className="text-accent">*</span></Label>
-                    <Input id="name" name="name" required placeholder="Your full name" className="text-sm md:text-base" />
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name <span className="text-accent">*</span></Label>
+                    <Input id="name" name="name" required placeholder="Your full name" />
                   </div>
 
-                  <div className="space-y-1.5 md:space-y-2">
-                    <Label htmlFor="email" className="text-sm md:text-base">Email <span className="text-accent">*</span></Label>
-                    <Input id="email" name="email" type="email" required placeholder="your.email@example.com" className="text-sm md:text-base" />
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email <span className="text-accent">*</span></Label>
+                    <Input id="email" name="email" type="email" required placeholder="your.email@example.com" />
                   </div>
                 </div>
 
-                <div className="space-y-1.5 md:space-y-2">
-                  <Label htmlFor="phone" className="text-sm md:text-base">Phone Number</Label>
-                  <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" className="text-sm md:text-base" />
+                {/* Phone */}
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number</Label>
+                  <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" />
                 </div>
 
-                <div className="space-y-1.5 md:space-y-2">
-                  <Label htmlFor="message" className="text-sm md:text-base">Message <span className="text-accent">*</span></Label>
-                  <Textarea id="message" name="message" required placeholder="Tell us what's on your mind..." className="text-sm md:text-base min-h-[100px] md:min-h-[120px]" />
+                {/* Message */}
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message <span className="text-accent">*</span></Label>
+                  <Textarea id="message" name="message" required placeholder="Tell us what's on your mind..." className="min-h-[120px]" />
                 </div>
 
+                {/* Submit Button */}
                 <MagneticButton className="w-full">
                   <Button 
-                    type="submit" 
+                    type="submit"
                     disabled={isSubmitting}
-                    className="w-full h-11 md:h-14 bg-gradient-gold text-foreground font-bold text-sm md:text-lg shadow-gold hover:shadow-neon transition-all duration-500 disabled:opacity-50"
+                    className="w-full h-12 md:h-14 bg-gradient-gold text-foreground font-bold text-base shadow-gold hover:shadow-neon transition-all duration-500 disabled:opacity-50"
                   >
                     <span className="flex items-center gap-2">
-                      <Send className="w-4 h-4 md:w-5 md:h-5" />
+                      <Send className="w-5 h-5" />
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </span>
                   </Button>
@@ -169,13 +173,14 @@ const Contact = () => {
             </Card>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Right Side Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="lg:col-span-2 space-y-4 md:space-y-6"
           >
+            {/* Info Cards */}
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
@@ -186,25 +191,26 @@ const Contact = () => {
                 <motion.a
                   href={info.href}
                   target={info.href.startsWith("http") ? "_blank" : undefined}
-                  rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
                   <Card className="p-4 md:p-6 glassmorphism border-2 hover:border-accent/30 group">
-                    <div className="flex items-start gap-3 md:gap-4">
-                      <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-gold flex items-center justify-center shadow-gold group-hover:shadow-neon transition-shadow flex-shrink-0">
-                        <info.icon className="h-5 w-5 md:h-6 md:w-6 text-foreground" />
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-gold flex items-center justify-center shadow-gold group-hover:shadow-neon transition-shadow">
+                        <info.icon className="h-6 w-6" />
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <h3 className="font-serif font-bold text-foreground text-base md:text-lg mb-0.5 md:mb-1">{info.title}</h3>
-                        <p className="text-accent font-medium mb-0.5 md:mb-1 text-sm md:text-base truncate">{info.value}</p>
-                        <p className="text-muted-foreground text-xs md:text-sm">{info.description}</p>
+                      <div>
+                        <h3 className="font-serif font-bold text-lg">{info.title}</h3>
+                        <p className="text-accent font-medium text-base">{info.value}</p>
+                        <p className="text-muted-foreground text-sm">{info.description}</p>
                       </div>
                     </div>
                   </Card>
                 </motion.a>
               </motion.div>
             ))}
+
             {/* Map */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -220,12 +226,13 @@ const Contact = () => {
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
-                    className="grayscale hover:grayscale-0 transition-all duration-500"
+                    className="grayscale hover:grayscale-0 transition-all"
                     title="Amrita Campus"
                   />
                 </div>
               </Card>
             </motion.div>
+
           </motion.div>
         </div>
       </div>
