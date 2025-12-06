@@ -8,52 +8,50 @@ import { motion } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
 import MagneticButton from "@/components/MagneticButton";
 import { useToast } from "@/hooks/use-toast";
-import { useEffect } from "react";
+import { useState, FormEvent } from "react";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    const form = document.getElementById("contactForm") as HTMLFormElement | null;
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
 
-    if (!form) return;
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    formData.set("_subject", "New Squad Contact Message - " + Date.now());
 
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/thesquadclub.aseb@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
 
-      // Unique subject to avoid email threading
-      const formData = new FormData(form);
-      formData.set("_subject", "New Squad Contact Message - " + Date.now());
-
-      try {
-        const response = await fetch("https://formsubmit.co/ajax/thesquadclub.aseb@gmail.com", {
-          method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" },
-        });
-
-        if (response.ok) {
-          toast({
-            title: "Message Sent!",
-            description: "Thank you for reaching out. We’ll get back to you soon.",
-          });
-          form.reset();
-        } else {
-          toast({
-            title: "Error",
-            description: "Failed to send message. Please try again.",
-            variant: "destructive",
-          });
-        }
-      } catch (error) {
+      if (response.ok) {
         toast({
-          title: "Network Error",
-          description: "Something went wrong. Please try again.",
+          title: "Message Sent!",
+          description: "Thank you for reaching out. We'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
           variant: "destructive",
         });
       }
-    });
-  }, [toast]);
+    } catch (error) {
+      toast({
+        title: "Network Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const contactInfo = [
     {
@@ -121,7 +119,7 @@ const Contact = () => {
                 Send us a Message
               </h2>
 
-              <form id="contactForm" className="space-y-4 md:space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 {/* FormSubmit hidden fields */}
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
@@ -149,10 +147,14 @@ const Contact = () => {
                 </div>
 
                 <MagneticButton className="w-full">
-                  <Button className="w-full h-11 md:h-14 bg-gradient-gold text-foreground font-bold text-sm md:text-lg shadow-gold hover:shadow-neon transition-all duration-500">
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full h-11 md:h-14 bg-gradient-gold text-foreground font-bold text-sm md:text-lg shadow-gold hover:shadow-neon transition-all duration-500 disabled:opacity-50"
+                  >
                     <span className="flex items-center gap-2">
                       <Send className="w-4 h-4 md:w-5 md:h-5" />
-                      Send Message
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </span>
                   </Button>
                 </MagneticButton>
