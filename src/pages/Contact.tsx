@@ -128,6 +128,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 {/* FormSubmit hidden fields */}
                 <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://squad-aseb.lovable.app/contact" />
                 <input type="hidden" name="_template" value="table" />
 
                 <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
